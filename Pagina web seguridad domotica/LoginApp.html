@@ -1,0 +1,260 @@
+
+<!DOCTYPE html>
+<html>
+<head>
+<link rel="icon" type="image/png" href="escudo.png">
+<title>Inicio Sesión</title>
+<meta property="og:image" content="/snippets/designs/login-form-with-avatar-image.png" />
+<meta charset="UTF-8" />
+<meta name="viewport" content="width=device-width, initial-scale=1" />
+<meta property="fb:admins" content="100001054961582" />
+<meta property="fb:app_id" content="1404574483159557" />
+<link type="image/x-icon" href="/favicon.ico" rel="shortcut icon" />
+<link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/bootstrap/3.3.7/css/bootstrap.min.css" />
+<link rel="stylesheet" href="/lib/styles/snippets-1.7.css" />
+<script src="https://ajax.googleapis.com/ajax/libs/jquery/1.12.4/jquery.min.js"></script>
+<script src="https://maxcdn.bootstrapcdn.com/bootstrap/3.3.7/js/bootstrap.min.js"></script>
+<script src="/lib/js/snippets-1.0.js"></script><!--Google Analytics-->
+
+<style>
+  .main 
+            {
+                width: 70%;
+                margin: 0 auto;
+                padding-top: 20px;
+                text-align: center;
+            }
+</style>
+</head>
+
+    <body class="text-center" onload="carga_datos_init();">
+        <div class="main">
+        <img src="Login.png"width="30%">
+        <h1 class="h3 mb-3 font-weight-normal">Introduce tus datos para acceder a la Aplicación</h1>
+        <form name="login" class="form-signin">
+        <div>
+        <h1>
+            <label for="inputEmail" class="sr-only">Email</label>
+            <input type="email" name="usuario" id="inputEmail" placeholder="Correo electrónico *" class="form-control" value="" required autofocus>
+
+        </h1>
+        <h1>
+            <label for="inputPassword" class="sr-only">Contraseña</label>
+            <input type="password" name="password" id="inputPassword" placeholder="Contraseña *" class="form-control" value="" required >
+        </h1>
+        <div class="checkbox mb-3">
+            <label>
+            <input type="checkbox" value="remember-me"> Recuerdame
+            </label>
+        </div>
+      </div>
+        <input value="Entrar en la Aplicación" target="_parent" onclick="Login();" type="button" class="btn btn-lg btn-primary btn-block" />
+    </form>
+    </div>
+</body>
+
+
+<script language="JavaScript">
+    function Login() {
+      var done = 0;
+      var usuario = document.login.usuario.value;
+      var password = document.login.password.value;
+      
+      if (usuario == "empleado@seguridad.com" && password == "1234") {
+        window.location = "HomeEmpleado.html";
+      }
+      else if(usuario == "cliente@seguridad.com" && password == "1234"){
+        window.location = "HomeCliente.html"
+      }
+      else if(usuario == "" && password ==""){
+        alert("Introduce tus datos para poder acceder a la aplicación")
+      }
+      
+      else {
+        alert("El correo electrónico o la contraseña son incorrectos");
+      }
+    } 
+    function carga_datos_init()
+    {
+      var cargado=localStorage.getItem("cargado");
+      if(cargado!="true")
+      {
+              localStorage.clear();
+              let cliente =
+                    {
+                        nombre:"Alejandro",
+                        apellido:"Lozano",
+                        cuota: 5545,
+                        dni:"52006032L",
+                        n_tlf:"987547851",
+                        email:"cliente@seguridad.com",
+                        mascota:"Gato"
+                    };
+              localStorage.setItem("Cliente0",JSON.stringify(cliente));
+              let servicio1 =
+              {
+                precio: 215,
+                nombre_servicio:"Camara",
+                estado:"false",
+                info_adicional:"Estará encendida a partir de las 23:00",
+                lugar_instalación:"Despacho 2"
+              }
+              localStorage.setItem("ServicioCliente0"+"Cliente0",JSON.stringify(servicio1));
+
+              let servicio2 =
+              {
+                precio: 310,
+                nombre_servicio:"Puerta de Seguridad",
+                estado:"true",
+                info_adicional:"Sin informacion adicional",
+                lugar_instalación:"Entrada 1"
+              }
+              localStorage.setItem("ServicioCliente1"+"Cliente0",JSON.stringify(servicio2));
+
+              let servicio3 =
+              {
+                precio: 320,
+                nombre_servicio:"Alarma",
+                estado:"false",
+                info_adicional:"Sin informacion adicional",
+                lugar_instalación:"Sala de trabajo común 1"
+              }
+              localStorage.setItem("ServicioCliente2"+"Cliente0",JSON.stringify(servicio3));
+
+              let servicio4 =
+              {
+                precio: 1200,
+                averia:"false",
+                nombre_servicio:"Ascensor",
+                estado:"false",
+                info_adicional:"Peso máximo 600kg",
+                lugar_instalación:"",
+                planta:0
+              }
+              localStorage.setItem("ServicioCliente3"+"Cliente0",JSON.stringify(servicio4));
+
+              let servicio5 =
+              {
+                precio: 250,
+                nombre_servicio:"Ventana",
+                estado:"false",
+                info_adicional:"Sin informacion adicional",
+                lugar_instalación:"Sala de Servidores 1"
+              }
+              localStorage.setItem("ServicioCliente4"+"Cliente0",JSON.stringify(servicio5));
+
+              let servicio7 =
+              {
+                precio:860 ,
+                nombre_servicio:"Gestor de Temperatura",
+                estado:"true",
+                info_adicional:"Temperatura por defecto 20 Grados",
+                valor_temperatura:20,
+                lugar_instalación:"Despacho 2"
+              }
+              localStorage.setItem("ServicioCliente6"+"Cliente0",JSON.stringify(servicio7));
+
+              let servicio8 =
+              {
+                precio: 55,
+                nombre_servicio:"Control de iluminación",
+                estado:"false",
+                info_adicional:"Detector de presencia incorporado",
+                lugar_instalación:"Baño 1"
+              }
+              localStorage.setItem("ServicioCliente7"+"Cliente0",JSON.stringify(servicio8));
+
+              let servicio9 =
+              {
+                precio: 180,
+                nombre_servicio:"Sistema electrónico",
+                tipo_servicio:"Fax",
+                estado:"false",
+                info_adicional:"Sin informacion adicional",
+                lugar_instalación:"Despacho 2"
+              }
+              localStorage.setItem("ServicioCliente8"+"Cliente0",JSON.stringify(servicio9));
+
+              let servicio10 =
+              {
+                precio:230 ,
+                nombre_servicio:"Sistema electrónico",
+                estado:"false",
+                info_adicional:"Antivirus activado",
+                tipo_servicio:"Ordenador",
+                lugar_instalación:"Sala de Servidores 1"
+              }
+              localStorage.setItem("ServicioCliente9"+"Cliente0",JSON.stringify(servicio10));
+
+              let servicio11 =
+              {
+                precio: 115,
+                nombre_servicio:"Sistema electrónico",
+                estado:"true",
+                info_adicional:"Sin informacion adiciona",
+                tipo_servicio:"Impresora",
+                lugar_instalación:"Despacho 4"
+              }
+              localStorage.setItem("ServicioCliente10"+"Cliente0",JSON.stringify(servicio11));
+              
+              let servicio12 =
+              {
+                precio: 50,
+                nombre_servicio:"Sistema electrónico",
+                estado:"false",
+                info_adicional:"Sin informacion adiciona",
+                tipo_servicio:"Cafetera",
+                lugar_instalación:"Sala de Trabajo común 1"
+              }
+              localStorage.setItem("ServicioCliente11"+"Cliente0",JSON.stringify(servicio12));
+
+              let servicio13 =
+              {
+                precio:75 ,
+                nombre_servicio:"Sistema electrónico",
+                estado:"false",
+                info_adicional:"Sin informacion adiciona",
+                tipo_servicio:"Microondas",
+                lugar_instalación:"Sala de Servidores 1"
+              }
+              localStorage.setItem("ServicioCliente12"+"Cliente0",JSON.stringify(servicio13));
+              
+              let servicio14 =
+              {
+                precio: 110,
+                nombre_servicio:"Sistema electrónico",
+                estado:"false",
+                info_adicional:"Sin informacion adicional",
+                tipo_servicio:"Teléfono",
+                lugar_instalación:"Despacho 1"
+              }
+              localStorage.setItem("ServicioCliente13"+"Cliente0",JSON.stringify(servicio14));
+              
+              let servicio15 =
+              {
+                precio: 1200,
+                averia:"true",
+                nombre_servicio:"Ascensor",
+                estado:"false",
+                info_adicional:"Peso máximo 600kg",
+                lugar_instalación:"",
+                planta:0
+              }
+              localStorage.setItem("ServicioCliente14"+"Cliente0",JSON.stringify(servicio15));
+
+              let servicio16 =
+              {
+                precio: 130,
+                nombre_servicio:"Sensor",
+                estado:"false",
+                info_adicional:"Sensor de movilidad",
+                lugar_instalación:"Despacho 2"
+              }
+              localStorage.setItem("ServicioCliente15"+"Cliente0",JSON.stringify(servicio16));
+
+              cargado="true";
+              localStorage.setItem("cargado",cargado);
+          }
+    }
+  </script>
+</html>

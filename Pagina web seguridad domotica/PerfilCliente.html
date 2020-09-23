@@ -1,0 +1,530 @@
+<html>
+
+ <head>
+    <link rel="icon" type="image/png" href="escudo.png">
+    <title>Perfil</title>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <link rel="stylesheet" href="https://stackpath.bootstrapcdn.com/bootstrap/4.3.1/css/bootstrap.min.css"
+        integrity="sha384-ggOyR0iXCbMQv3Xipma34MD+dH/1fQ784/j6cY/iJTQUOhcWr7x9JvoRxT2MZw1T" crossorigin="anonymous">
+    <script src="https://code.jquery.com/jquery-3.3.1.slim.min.js"
+        integrity="sha384-q8i/X+965DzO0rT7abK41JStQIAqVgRVzpbzo5smXKp4YfRvH+8abtTE1Pi6jizo"
+        crossorigin="anonymous"></script>
+    <link href="https://gitcdn.github.io/bootstrap-toggle/2.2.2/css/bootstrap-toggle.min.css" rel="stylesheet">
+    <script src="https://gitcdn.github.io/bootstrap-toggle/2.2.2/js/bootstrap-toggle.min.js"></script>
+    <script src="https://unpkg.com/sweetalert/dist/sweetalert.min.js"></script>
+    <script src="https://cdnjs.cloudflare.com/ajax/libs/popper.js/1.14.7/umd/popper.min.js"
+        integrity="sha384-UO2eT0CpHqdSJQ6hJty5KVphtPhzWj9WO1clHTMGa3JDZwrnQq4sF86dIHNDz0W1"
+        crossorigin="anonymous"></script>
+    <script src="https://stackpath.bootstrapcdn.com/bootstrap/4.3.1/js/bootstrap.min.js"
+        integrity="sha384-JjSmVgyd0p3pXB1rRibZUAYoIIy6OrQ6VrjIEaFf/nJGzIxFDsf4x0xIM+B07jRM"
+        crossorigin="anonymous"></script>
+    <meta http-equiv="X-UA-Compatible" content="ie=edge">
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/normalize/8.0.1/normalize.css">
+    <link rel="stylesheet" href="styles.css">
+    <link rel="stylesheet" href="https://use.fontawesome.com/releases/v5.8.0/css/all.css">
+    <link rel="stylesheet" href="https://fonts.googleapis.com/icon?family=Material+Icons">
+    <style>
+        body {
+            background-color: #efe1e6;
+        }
+         .bg-light {
+            background-color: #99badc !important;
+        }
+         .card {
+                
+                position: relative;
+                display: -ms-flexbox;
+                display: flex;
+                -ms-flex-direction: column;
+                flex-direction: column;
+                min-width: 0;
+                max-width: 80%;
+                word-wrap: break-word;
+                background-color: #D2D7FF;
+                background-clip: border-box;
+                border: 5px solid rgba(41, 56, 171, 0.125);
+                border-radius: 20px;
+                margin: 20 auto;
+        }
+         .card-img-top {
+                width: 15%;
+                margin: 5 auto;
+            }
+        .card-standar {
+            border-radius: 0px 75px 0px 75px;
+            -moz-border-radius: 0px 75px 0px 75px;
+            -webkit-border-radius: 0px 75px 0px 75px;
+            border: 4px ridge #adadad;
+            background-color: #ffffff;
+            display: inline-block;
+        }
+         .icono-card {
+            font-size: 50px;
+            padding: 10px;
+        }
+         .switch {
+            position: relative;
+            display: block;
+            vertical-align: top;
+            width: 100px;
+            height: 30px;
+            padding: 3px;
+            margin: 0 10px 10px 0;
+            background: linear-gradient(to bottom, #eeeeee, #FFFFFF 25px);
+            background-image: -webkit-linear-gradient(top, #eeeeee, #FFFFFF 25px);
+            border-radius: 18px;
+            box-shadow: inset 0 -1px white, inset 0 1px 1px rgba(0, 0, 0, 0.05);
+            cursor: pointer;
+            box-sizing: content-box;
+        }
+         .switch-input {
+            position: absolute;
+            top: 0;
+            left: 0;
+            opacity: 0;
+            box-sizing: content-box;
+        }
+         .switch-label {
+            position: relative;
+            display: block;
+            height: inherit;
+            font-size: 10px;
+            text-transform: uppercase;
+            background: #eceeef;
+            border-radius: inherit;
+            box-shadow: inset 0 1px 2px rgba(0, 0, 0, 0.12), inset 0 0 2px rgba(0, 0, 0, 0.15);
+            box-sizing: content-box;
+        }
+         .switch-label:before,
+        .switch-label:after {
+            position: absolute;
+            top: 50%;
+            margin-top: -.5em;
+            line-height: 1;
+            -webkit-transition: inherit;
+            -moz-transition: inherit;
+            -o-transition: inherit;
+            transition: inherit;
+            box-sizing: content-box;
+        }
+         .switch-label:before {
+            content: attr(data-off);
+            right: 11px;
+            color: #aaaaaa;
+            text-shadow: 0 1px rgba(255, 255, 255, 0.5);
+        }
+         .switch-label:after {
+            content: attr(data-on);
+            left: 11px;
+            color: #FFFFFF;
+            text-shadow: 0 1px rgba(0, 0, 0, 0.2);
+            opacity: 0;
+        }
+         .switch-input:checked~.switch-label {
+            background: #E1B42B;
+            box-shadow: inset 0 1px 2px rgba(0, 0, 0, 0.15), inset 0 0 3px rgba(0, 0, 0, 0.2);
+        }
+         .switch-input:checked~.switch-label:before {
+            opacity: 0;
+        }
+         .switch-input:checked~.switch-label:after {
+            opacity: 1;
+        }
+         .switch-handle {
+            position: absolute;
+            top: 4px;
+            left: 4px;
+            width: 28px;
+            height: 28px;
+            background: linear-gradient(to bottom, #FFFFFF 40%, #f0f0f0);
+            background-image: -webkit-linear-gradient(top, #FFFFFF 40%, #f0f0f0);
+            border-radius: 100%;
+            box-shadow: 1px 1px 5px rgba(0, 0, 0, 0.2);
+        }
+         .switch-handle:before {
+            content: "";
+            position: absolute;
+            top: 50%;
+            left: 50%;
+            margin: -6px 0 0 -6px;
+            width: 12px;
+            height: 12px;
+            background: linear-gradient(to bottom, #eeeeee, #FFFFFF);
+            background-image: -webkit-linear-gradient(top, #eeeeee, #FFFFFF);
+            border-radius: 6px;
+            box-shadow: inset 0 1px rgba(0, 0, 0, 0.02);
+        }
+         .switch-input:checked~.switch-handle {
+            left: 74px;
+            box-shadow: -1px 1px 5px rgba(0, 0, 0, 0.2);
+        }
+         /* Transition
+            ========================== */
+        .switch-label,
+        .switch-handle {
+            transition: All 0.3s ease;
+            -webkit-transition: All 0.3s ease;
+            -moz-transition: All 0.3s ease;
+            -o-transition: All 0.3s ease;
+        }
+         .switch-yes-no {
+            padding: 0;
+            margin: 15px 0 0;
+            background: #FFF;
+            border-radius: 0;
+            background-image: none;
+        }
+         .switch-yes-no .switch-label {
+            box-shadow: none;
+            background: none;
+        }
+         .switch-yes-no .switch-label:after,
+        .switch-yes-no .switch-label:before {
+            width: 100%;
+            height: 70%;
+            color: black;
+            font-weight: 10px;
+            font-size: 12px;
+            top: 5px;
+            left: 0;
+            text-align: center;
+            padding-top: 10%;
+            box-shadow: inset 0 1px 4px rgba(0, 0, 0, 0.2), inset 0 0 3px rgba(0, 0, 0, 0.1);
+        }
+         .switch-yes-no .switch-label:after {
+            color: #FFFFFF;
+            background: #32CD32;
+            backface-visibility: hidden;
+            transform: rotateY(180deg);
+        }
+         .switch-yes-no .switch-label:before {
+            background: #eceeef;
+            backface-visibility: hidden;
+        }
+         .switch-yes-no .switch-handle {
+            display: none;
+        }
+         .switch-yes-no .switch-input:checked~.switch-label {
+            background: #FFF;
+            border-color: #0088cc;
+        }
+         .switch-yes-no .switch-input:checked~.switch-label:before {
+            transform: rotateY(180deg)
+        }
+         .switch-yes-no .switch-input:checked~.switch-label:after {
+            transform: rotateY(0)
+        }
+        .custom-range 
+        {
+        width: 90%;
+        height: calc(1rem + .4rem);
+        padding: 0;
+        background-color: transparent;
+        -webkit-appearance: none;
+        -moz-appearance: none;
+        appearance: none;
+        }
+        .etiqueta
+        {
+            border-radius: 87px 87px 87px 87px;
+            -moz-border-radius: 87px 87px 87px 87px;
+            -webkit-border-radius: 87px 87px 87px 87px;
+            border: 2px inset #c7b3c7;
+            padding:3px;
+        }
+        li:hover{
+                background: #85C1E9;
+            }
+        .navbar {
+            position: relative;
+            min-height: 50px;
+            display: block;
+            padding-top: 12px;
+            padding-bottom: 12px;
+            background-color: #99badc;
+        }
+        .fixed-bottom-bar {
+            position: fixed;
+            min-height: 30px;
+            background-color: #99badc;
+            bottom: 0;
+            width: 100%;
+            padding: 4px 15px;
+            box-sizing: border-box;
+        }
+         .fixed-bottom-bar ul {
+            padding: 0;
+            margin: 0;
+            align-items: center;
+            flex-wrap: wrap;
+            justify-content: space-between;
+            display: flex;
+            list-style: none;
+        }
+         .fixed-bottom-bar ul li {
+            padding: 4px 15px;
+            color: #FFFFFF;
+            font-size: 12pt;
+        }
+         .flex-navbar {
+            display: flex;
+            align-items: center;
+            flex-wrap: wrap;
+            justify-content: space-between;
+            list-style: none;
+            margin: 0;
+            color: black;
+            font-size: 18px;
+            margin-inline-end: 40px;
+        }
+        .account-item a{
+            color: black;
+            text-decoration: none;
+            padding: 6px 8px;
+            font-size: 18pt;
+            box-sizing: border-box;
+         }
+        .main 
+            {
+                width: 100%;
+                margin: 0 auto;
+                padding-top: 20px;
+                padding-bottom: 40px;
+                text-align: center;
+            }
+            .card-img-top {
+                width: 15%;
+                margin: 5 auto;
+                border: 2px solid black;
+            }
+            .btn 
+            {
+                margin: 10px
+            }
+            .info-cliente
+            {
+                list-style: none;
+            }
+            .info-cliente-enunciado
+            {
+                background-color: #C7C9D5;
+                color:black;
+                border-radius: 10px;
+                display: block;
+                max-width: 70%;
+                margin: 5 auto;
+                padding: 5px;
+                border-left: 6px solid #1F31C1;
+                border-right: 6px solid #1F31C1;
+            }
+            .btn-info {
+            color: #fff;
+            background-color: #006267;
+            border-color: #006267;
+            }
+            .boton-info
+            {
+                background: deepskyblue;
+                border-radius: 50%;
+                width: 40px;
+                height: 40px;
+            }
+            label 
+            {
+                display: contents;
+                margin-bottom: .5rem;
+            }
+            .imgRedonda {
+                
+                width:150px;
+                height:150px;
+                border-radius:150px;
+                border-left: 3px solid #1F31C1;
+                border-right: 3px solid #1F31C1;
+                border-bottom: 3px solid #1F31C1;
+                border-top: 3px solid #1F31C1;
+                margin: 10px auto;
+                background-color: #ffffff;
+            }
+            .imgpequeña{
+                position: absolute;
+                width:40px;
+                height:40px;
+                border-radius:150px;
+                border-left: 1px solid #1F31C1;
+                border-right: 1px solid #1F31C1;
+                border-bottom: 1px solid #1F31C1;
+                border-top: 1px solid #1F31C1;
+                margin-left: 53%;
+                margin-top: 11%;
+                background-color: #1F31C1;
+                z-index: 1;
+            }
+     </style>
+</head>
+
+ <body onload="inicio();">
+    <nav class="navbar">
+            <ul class="flex-navbar">
+                <strong>PERFIL</strong> 
+                <li class="account-item">
+                    <a href="LoginApp.html">
+                      <i style="font-size: 22px;" class="fas fa-sign-out-alt"> Cerrar Sesión</i>
+                    </a>
+                </li>
+            </ul>
+    </nav>
+    <div class="main" id="main">
+        <!--<div class="card">
+            <img src="camara.png" class="imgRedonda" alt="Foto Cliente" width="25px" width="25px">
+            <button class="imgpequeña"><i class="fas fa-camera" style="color: white"></i></button> 
+            <div class="card-body">
+                    <div class="info-cliente-enunciado">
+                        <i style="float: left" class="fas fa-file-signature"></i>
+                        <i style="float: right" class="fas fa-file-signature"></i>
+                        <strong>Nombre</strong><br>
+                        <label type="text" id="DniOut">$Nombre$</label>
+                    </div>
+                    <div class="info-cliente-enunciado">
+                        <i style="float: left" class="fas fa-file-signature"></i>
+                        <i style="float: right" class="fas fa-file-signature"></i>
+                        <strong>Apellidos</strong><br>
+                        <label type="text" id="DniOut">$Apellidos$</label>
+                    </div>
+                    <div class="info-cliente-enunciado">
+                        <i style="float: left" class="fas fa-id-card"></i>
+                        <i style="float: right" class="fas fa-id-card"></i>
+                        <strong>Dni: </strong><br>
+                        <label type="text" id="DniOut">$54678930-M$</label>
+                    </div>
+                        <div class="info-cliente-enunciado">
+                            <i style="float: left" class="fas fa-euro-sign"></i>
+                            <i style="float: right" class="fas fa-euro-sign"></i>
+                            <strong>Cuota</strong><br>
+                            <label type="number" id="CuotaOut">$1234€$</label>
+                        </div>
+                        <div class="info-cliente-enunciado">
+                            <i style="float: left" class="fas fa-phone-volume"></i>
+                            <i style="float: right" class="fas fa-phone-volume"></i>
+                            <strong>Numero de Telefono</strong><br>
+                            <label type="text" id="TlfOut">$123456789$</label>
+                        </div>
+                        <div class="info-cliente-enunciado">
+                            <i style="float: left" class="fas fa-envelope"></i>
+                            <i style="float: right" class="fas fa-envelope"></i>
+                            <strong>Correo Electrónico</strong><br>
+                            <label type="text" id="EmailOut">$Pepito@gmail.com$</label>
+                        </div>
+                        <div class="info-cliente-enunciado">
+                                <i style="float: left" class="fas fa-paw"></i>
+                                <i style="float: right" class="fas fa-paw"></i>
+                            <strong>Mascota</strong><br>
+                            <label type="text" id="MascotaOut">$Perro$</label>
+                        </div>
+                    <a href="EditarCliente.html"><button type="button" class="btn btn-secondary">Editar <i class="fas fa-user-edit"></i></button></a>
+                </div>-->
+        </div>
+    <div class="fixed-bottom-bar">
+        <ul>
+                <li>
+                        <a style="color:black; text-decoration: none;" href="NotificacionesCliente.html">
+                            <i style="font-size: 30px" class="fas fa-bell"></i>
+
+                         </a>                
+                    </li>
+            <li>
+                <a style="color:black; text-decoration:none;" href="HomeCliente.html">
+                    <i style="font-size: 30px" class="fas fa-home"></i>
+
+                 </a>
+            </li>
+
+             <li>
+                <a style="color:black; text-decoration: none;" href="PerfilCliente.html">
+                    <i style="font-size: 30px" class="fas fa-user"></i>
+
+                 </a>
+            </li>
+        </ul>
+    </div>
+</body>
+<script src="https://ajax.googleapis.com/ajax/libs/jquery/2.1.3/jquery.min.js"></script> 
+<script type = "text/javascript">
+    function inicio()
+        {
+            //Genera el código html por cada cliente que esté en el localStorage
+            var cliente,id_primero,encontrado=false;
+            var main=document.getElementById("main");
+            for(var i =0; i < localStorage.length; i++)
+            {
+                if(localStorage.getItem("Cliente"+i)&&!encontrado)
+                {
+                    id_primero=i
+                    encontrado=true;
+                }
+            }
+            console.log(id_primero);
+                if(localStorage.getItem("Cliente"+id_primero))
+                {
+                    cliente= localStorage.getItem("Cliente"+id_primero);
+                    cliente= JSON.parse(cliente);
+                    var card_cliente = document.createElement("div");
+                    card_cliente.className="card";
+                    card_cliente.setAttribute("id","card_cliente");
+                    card_cliente.innerHTML = '<img src="https://img.icons8.com/ios/100/000000/user-filled.png" class="imgRedonda" width="25px" width="25px">'
+                                            +'<button class="imgpequeña"><i class="fas fa-camera" style="color: white"></i></button>';                   
+                    document.getElementById("main").appendChild(card_cliente);
+                    var card_cliente_body = document.createElement("div");
+                    card_cliente_body.className="card-body";
+                    card_cliente_body.setAttribute("id","card_cliente_body");
+                    document.getElementById("card_cliente").appendChild(card_cliente_body);
+                    card_cliente_body.innerHTML='<div class="info-cliente-enunciado">'
+                                                    +'<i style="float: left" class="fas fa-pen-alt"></i>'
+                                                    +'<strong>Nombre</strong><br>'
+                                                   +'<label type="text" id="DniOut">'+cliente.nombre+'</label>'
+                                                +'</div>'
+                                    //apellido
+                                                +'<div class="info-cliente-enunciado">'
+                                                +'<i style="float: left" class="fas fa-pen-alt"></i>'
+                                                +'<strong>Apellido</strong><br>'
+                                                +'<label type="text" id="DniOut">'+cliente.apellido+'</label>'
+                                            +'</div>'
+                                    //dni 
+                                        +'<div class="info-cliente-enunciado">'
+                                            +'<i style="float: left" class="fas fa-id-card"></i>'
+                                            +'<strong>Dni: </strong><br>'
+                                            +'<label type="text" id="DniOut">'+cliente.dni+'</label>'
+                                        +'</div>'
+                                     //cuota
+                                     +'<div class="info-cliente-enunciado">'
+                                        +'<i style="float: left" class="fas fa-euro-sign"></i>'
+                                        +'<strong>Cuota</strong><br>'
+                                        +'<label type="number" id="CuotaOut">'+cliente.cuota+'</label>'
+                                    +'</div>'
+                                      //telefono
+                                      +'<div class="info-cliente-enunciado" id="card_cliente_body_element1">'
+                                        +'<i style="float: left" class="fas fa-phone-volume"></i>'
+                                        +'<strong>Teléfono: </strong><br>'
+                                        +'<label type="text" id="tlfOut">'+cliente.n_tlf+'</label>'
+                                    +'</div>'
+                                     //email
+                                     +'<div class="info-cliente-enunciado">'
+                                        +'<i style="float: left" class="fas fa-envelope"></i>'
+                                        +'<strong>Correo Electrónico</strong><br>'
+                                        +'<label type="text" id="EmailOut">'+cliente.email+'</label>'
+                                    +'</div>'
+                                     //mascota
+                                     +'<div class="info-cliente-enunciado">'
+                                            +'<i style="float: left" class="fas fa-paw"></i>'
+                                        +'<strong>Mascota</strong><br>'
+                                        +'<label type="text" id="MascotaOut">'+cliente.mascota+'</label>'
+                                    +'</div>'
+                                     //editar
+                                    +'<a href="EditarCliente.html"><button type="button" class="btn btn-secondary">Editar <i class="fas fa-user-edit"></i></button></a>'
+                                    +'</div>';
+                    
+                    }
+            }
+</script>
+</html> 

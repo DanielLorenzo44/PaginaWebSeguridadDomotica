@@ -1,0 +1,247 @@
+<html>
+    <head>
+        <link rel="icon" type="image/png" href="escudo.png">
+        <title>Claves y Contactos</title>
+        <meta charset="UTF-8">
+        <meta name="viewport" content="width=device-width, initial-scale=1.0">
+        <link rel="stylesheet" href="https://stackpath.bootstrapcdn.com/bootstrap/4.3.1/css/bootstrap.min.css"
+            integrity="sha384-ggOyR0iXCbMQv3Xipma34MD+dH/1fQ784/j6cY/iJTQUOhcWr7x9JvoRxT2MZw1T" crossorigin="anonymous">
+        <script src="https://code.jquery.com/jquery-3.3.1.slim.min.js"
+            integrity="sha384-q8i/X+965DzO0rT7abK41JStQIAqVgRVzpbzo5smXKp4YfRvH+8abtTE1Pi6jizo"
+            crossorigin="anonymous"></script>
+        <script src="https://unpkg.com/sweetalert/dist/sweetalert.min.js"></script>
+        <script src="https://cdnjs.cloudflare.com/ajax/libs/popper.js/1.14.7/umd/popper.min.js"
+            integrity="sha384-UO2eT0CpHqdSJQ6hJty5KVphtPhzWj9WO1clHTMGa3JDZwrnQq4sF86dIHNDz0W1"
+            crossorigin="anonymous"></script>
+        <script src="https://stackpath.bootstrapcdn.com/bootstrap/4.3.1/js/bootstrap.min.js"
+            integrity="sha384-JjSmVgyd0p3pXB1rRibZUAYoIIy6OrQ6VrjIEaFf/nJGzIxFDsf4x0xIM+B07jRM"
+            crossorigin="anonymous"></script>
+        <meta http-equiv="X-UA-Compatible" content="ie=edge">
+        <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/normalize/8.0.1/normalize.css">
+        <link rel="stylesheet" href="styles.css">
+        <link rel="stylesheet" href="https://use.fontawesome.com/releases/v5.8.0/css/all.css">
+        <link rel="stylesheet" href="https://fonts.googleapis.com/icon?family=Material+Icons">
+        <style>
+            body
+            {
+                background-color: #ffffff;
+            }
+            .bg-light 
+            {
+                background-color: #99badc !important;
+            }
+            .main 
+            {
+                width: 70%;
+                margin: 0 auto;
+                padding-top: 20px;
+                text-align: center;
+            }
+            .card-img-top {
+                width: 15%;
+                margin: 5 auto;
+                border: 2px solid black;
+            }
+            .card-img-top-clave {
+                width: 15%;
+                margin: 5 auto;
+            }
+            .card 
+            {
+
+                position: relative;
+                display: -ms-flexbox;
+                display: flex;
+                -ms-flex-direction: column;
+                flex-direction: column;
+                min-width: 0;
+                max-width: 80%;
+                word-wrap: break-word;
+                background-color: #d6cac6;
+                background-clip: border-box;
+                border: 5px solid rgba(0, 0, 0, 0.125);
+                border-radius: 20px;
+                margin: 20 auto;
+            }
+            .btn 
+            {
+                margin: 10px
+            }
+            .info-cliente
+            {
+                list-style: none;
+            }
+            .info-cliente-enunciado
+            {
+                background-color: #EDE7CD;
+                color:black;
+                border-radius: 10px;
+                display: block;
+                max-width: 70%;
+                margin: 5 auto;
+                padding: 5px;
+                border-left: 6px solid #a84122;
+                border-right: 6px solid #a84122;
+            }
+            .btn-info {
+            color: #fff;
+            background-color: #006267;
+            border-color: #006267;
+            }
+            .boton-info
+            {
+                background: deepskyblue;
+                border-radius: 50%;
+                width: 40px;
+                height: 40px;
+            }
+            label 
+            {
+                display: contents;
+                margin-bottom: .5rem;
+            }
+        </style>
+    </head>
+
+<body onload="inicio();">
+    <nav class="navbar navbar-expand-lg navbar-light bg-light">
+        <a class="navbar-brand">Claves y Contactos</a>
+        <button class="navbar-toggler" type="button" data-toggle="collapse" data-target="#navbarSupportedContent"
+            aria-controls="navbarSupportedContent" aria-expanded="false" aria-label="Toggle navigation">
+            <span class="navbar-toggler-icon"></span>
+        </button>
+        <div class="collapse navbar-collapse" id="navbarSupportedContent">
+            <ul class="navbar-nav mr-auto">
+                <li class="nav-item ">
+                        <a class="nav-link" href="HomeEmpleado.html"><i class="fas fa-home"></i> Inicio </a>
+                    </li>
+                <li class="nav-item">
+                    <a class="nav-link" href="LoginApp.html"><i class="fas fa-sign-out-alt"></i> Cerrar Sesión</a>
+                </li>
+            </ul>
+        </div>
+    </nav>
+    <div class="main" id="main">
+        <h2>Listado de Contactos:</h2>
+        <div class="card">
+            <img src="https://img.icons8.com/ios/100/000000/user-filled.png" class="card-img-top" alt="Usuario Imagen" width="25px" width="25px">
+            <div class="card-body">
+                <h5 class="card-title"><label type="text" id="NombreyApellidoOut">Padre</label></h5>
+                        <div class="info-cliente-enunciado">
+                            <i style="float: left" class="fas fa-phone-volume"></i>
+                            <strong>Numero de Teléfono</strong><br>
+                            <label type="text" id="TlfOut">676543892</label>
+                        </div>
+                        <div class="info-cliente-enunciado">
+                            <i style="float: left" class="fas fa-envelope"></i>
+                            <strong>Correo Electrónico</strong><br>
+                            <label type="text" id="EmailOut">padre@seguridad.com</label>
+                        </div>
+                    <a href="#"><button type="button" class="btn btn-secondary">Editar <i class="fas fa-user-edit"></i></button></a>
+                    <button type="button" class="btn btn-danger"value = "EliminarUser" onclick = "getConfirmation();">Eliminar <i class="fas fa-user-times"></i></button>
+                </div>
+        </div>
+        <div class="card">
+            <img src="https://img.icons8.com/ios/100/000000/user-filled.png" class="card-img-top" alt="Usuario Imagen" width="25px" width="25px">
+            <div class="card-body">
+                <h5 class="card-title"><label type="text" id="NombreyApellidoOut">Madre</label></h5>
+                        <div class="info-cliente-enunciado">
+                            <i style="float: left" class="fas fa-phone-volume"></i>
+                            <strong>Numero de Teléfono</strong><br>
+                            <label type="text" id="TlfOut">612347891</label>
+                        </div>
+                        <div class="info-cliente-enunciado">
+                            <i style="float: left" class="fas fa-envelope"></i>
+                            <strong>Correo Electrónico</strong><br>
+                            <label type="text" id="EmailOut">madre@seguridad.com</label>
+                        </div>
+                    <a href="#"><button type="button" class="btn btn-secondary">Editar <i class="fas fa-user-edit"></i></button></a>
+                    <button type="button" class="btn btn-danger"value = "EliminarUser" onclick = "getConfirmation();">Eliminar <i class="fas fa-user-times"></i></button>
+                </div>
+        </div>
+        <div class="card">
+            <img src="https://img.icons8.com/ios/100/000000/user-filled.png" class="card-img-top" alt="Usuario Imagen" width="25px" width="25px">
+            <div class="card-body">
+                <h5 class="card-title"><label type="text" id="NombreyApellidoOut">Hermana</label></h5>
+                        <div class="info-cliente-enunciado">
+                            <i style="float: left" class="fas fa-phone-volume"></i>
+                            <strong>Numero de Teléfono</strong><br>
+                            <label type="text" id="TlfOut">691283746</label>
+                        </div>
+                        <div class="info-cliente-enunciado">
+                            <i style="float: left" class="fas fa-envelope"></i>
+                            <strong>Correo Electrónico</strong><br>
+                            <label type="text" id="EmailOut">hermana@seguridad.com</label>
+                        </div>
+                    <a href="#"><button type="button" class="btn btn-secondary">Editar <i class="fas fa-user-edit"></i></button></a>
+                    <button type="button" class="btn btn-danger"value = "EliminarUser" onclick = "getConfirmation();">Eliminar <i class="fas fa-user-times"></i></button>
+                </div>
+        </div>
+        <h2>Listado de Claves:</h2>
+        <div class="card">
+            <img src="https://img.icons8.com/metro/52/000000/secured-by-alarm-system.png" class="card-img-top-clave" alt="Alarmas exteriores" width="25px" width="25px">
+            <div class="card-body">
+                <h5 class="card-title"><label type="text" id="NombreyApellidoOut">Alarmas Exteriores</label></h5>
+                        <div class="info-cliente-enunciado">
+                            <i style="float: left" class="fas fa-key"></i>
+                            <strong>Clave</strong><br>
+                            <label type="text" id="TlfOut">5678</label>
+                        </div>
+                    <a href="#"><button type="button" class="btn btn-secondary">Editar <i class="fas fa-edit"></i></button></a>
+                    <button type="button" class="btn btn-danger"value = "EliminarUser" onclick = "getConfirmation1();">Eliminar <i class="fas fa-trash-alt"></i></button>
+                </div>
+        </div>
+        <div class="card">
+            <img src="https://img.icons8.com/metro/52/000000/secured-by-alarm-system.png" class="card-img-top-clave" alt="Alarmas interiores" width="25px" width="25px">
+            <div class="card-body">
+                <h5 class="card-title"><label type="text" id="NombreyApellidoOut">Alarmas Interiores</label></h5>
+                        <div class="info-cliente-enunciado">
+                            <i style="float: left" class="fas fa-key"></i>
+                            <strong>Clave</strong><br>
+                            <label type="text" id="TlfOut">1239</label>
+                        </div>
+                    <a href="#"><button type="button" class="btn btn-secondary">Editar <i class="fas fa-edit"></i></button></a>
+                    <button type="button" class="btn btn-danger"value = "EliminarUser" onclick = "getConfirmation1();">Eliminar <i class="fas fa-trash-alt"></i></button>
+                </div>
+        </div>
+    </div>
+</body>
+<script src="https://ajax.googleapis.com/ajax/libs/jquery/2.1.3/jquery.min.js"></script> 
+<script type = "text/javascript">
+       function getConfirmation() 
+        {
+            swal({
+            title: "¿Estás segura/o de eliminar un Contacto de forma permanente?",
+            text: "Una vez borrado el Contacto no podrás acceder a él y perderás todos sus datos almacenados en la aplicación",
+            icon: "warning",
+            buttons: true,
+            dangerMode: true,
+            })
+            .then((willDelete) => {
+            if (willDelete) {
+                swal("El Contacto ha sido borrado con éxito.", {
+                icon: "success",
+                });
+            } 
+            });
+        }
+        function getConfirmation1() 
+        {
+            swal({
+            title: "¿Estás segura/o de eliminar la Clave de forma permanente?",
+            text: "Una vez borrado la Clave no podrás acceder a él y perderás todos sus datos almacenados en la aplicación",
+            icon: "warning",
+            buttons: true,
+            dangerMode: true,
+            })
+            .then((willDelete) => {
+            if (willDelete) {
+                swal("La Clave ha sido borrado con éxito.", {
+                icon: "success",
+                });
+            } 
+            });
+        }
+
+ </script>  
+</html>

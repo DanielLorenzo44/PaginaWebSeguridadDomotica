@@ -1,0 +1,315 @@
+<html>
+    <head>
+        <link rel="icon" type="image/png" href="escudo.png">
+        <title>Inicio Empleados</title>
+        <meta charset="UTF-8">
+        <meta name="viewport" content="width=device-width, initial-scale=1.0">
+        <link rel="stylesheet" href="https://stackpath.bootstrapcdn.com/bootstrap/4.3.1/css/bootstrap.min.css"
+            integrity="sha384-ggOyR0iXCbMQv3Xipma34MD+dH/1fQ784/j6cY/iJTQUOhcWr7x9JvoRxT2MZw1T" crossorigin="anonymous">
+        <script src="https://code.jquery.com/jquery-3.3.1.slim.min.js"
+            integrity="sha384-q8i/X+965DzO0rT7abK41JStQIAqVgRVzpbzo5smXKp4YfRvH+8abtTE1Pi6jizo"
+            crossorigin="anonymous"></script>
+        <script src="https://unpkg.com/sweetalert/dist/sweetalert.min.js"></script>
+        <script src="https://cdnjs.cloudflare.com/ajax/libs/popper.js/1.14.7/umd/popper.min.js"
+            integrity="sha384-UO2eT0CpHqdSJQ6hJty5KVphtPhzWj9WO1clHTMGa3JDZwrnQq4sF86dIHNDz0W1"
+            crossorigin="anonymous"></script>
+        <script src="https://stackpath.bootstrapcdn.com/bootstrap/4.3.1/js/bootstrap.min.js"
+            integrity="sha384-JjSmVgyd0p3pXB1rRibZUAYoIIy6OrQ6VrjIEaFf/nJGzIxFDsf4x0xIM+B07jRM"
+            crossorigin="anonymous"></script>
+        <meta http-equiv="X-UA-Compatible" content="ie=edge">
+        <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/normalize/8.0.1/normalize.css">
+        <link rel="stylesheet" href="styles.css">
+        <link rel="stylesheet" href="https://use.fontawesome.com/releases/v5.8.0/css/all.css">
+        <link rel="stylesheet" href="https://fonts.googleapis.com/icon?family=Material+Icons">
+        <style>
+            body
+            {
+                background-color: #ffffff;
+            }
+            .bg-light 
+            {
+                background-color: #99badc !important;
+            }
+            .main 
+            {
+                width: 70%;
+                margin: 0 auto;
+                padding-top: 20px;
+                text-align: center;
+            }
+            .card-img-top {
+                width: 15%;
+                margin: 5 auto;
+                border: 2px solid black;
+            }
+            .card 
+            {
+                width: fit-content;
+                position: relative;
+                display: -ms-flexbox;
+                display: flex;
+                -ms-flex-direction: column;
+                flex-direction: column;
+                min-width: 0;
+                max-width: 80%;
+                word-wrap: break-word;
+                background-color: #d6cac6;
+                background-clip: border-box;
+                border: 5px solid rgba(0, 0, 0, 0.125);
+                border-radius: 20px;
+                margin: 20 auto;
+            }
+            .btn 
+            {
+                margin: 10px
+            }
+            .info-cliente
+            {
+                list-style: none;
+            }
+            .info-cliente-enunciado
+            {
+                background-color: #EDE7CD;
+                color:black;
+                border-radius: 10px;
+                display: block;
+                max-width: 70%;
+                margin: 5 auto;
+                padding: 5px;
+                border-left: 6px solid #a84122;
+                border-right: 6px solid #a84122;
+            }
+            .btn-info {
+            color: #fff;
+            background-color: #006267;
+            border-color: #006267;
+            }
+            .boton-info
+            {
+                background: deepskyblue;
+                border-radius: 50%;
+                width: 40px;
+                height: 40px;
+            }
+            label 
+            {
+                display: contents;
+                margin-bottom: .5rem;
+            }
+        </style>
+    </head>
+
+<body onload="inicio();">
+    <nav class="navbar navbar-expand-lg navbar-light bg-light">
+        <a class="navbar-brand">Empresa Seguridad Domótica</a>
+        <button class="navbar-toggler" type="button" data-toggle="collapse" data-target="#navbarSupportedContent"
+            aria-controls="navbarSupportedContent" aria-expanded="false" aria-label="Toggle navigation">
+            <span class="navbar-toggler-icon"></span>
+        </button>
+        <div class="collapse navbar-collapse" id="navbarSupportedContent">
+            <ul class="navbar-nav mr-auto">
+                <li class="nav-item ">
+                        <a class="nav-link" href="HomeEmpleado.html"><i class="fas fa-home"></i> Inicio </a>
+                    </li>
+                <li class="nav-item ">
+                        <a class="nav-link" href="AniadirCliente.html"><i style="color: #5d9653" class="fas fa-plus"></i> Añadir Cliente </a>
+                    </li>
+                    <li class="nav-item ">
+                        <a class="nav-link" style="cursor: pointer;"onclick="info();"><i style="color: #0732ad" class="fas fa-info-circle"></i> Información </a>
+                    </li>
+                <li class="nav-item">
+                    <a class="nav-link" href="LoginApp.html"><i class="fas fa-sign-out-alt"></i> Cerrar Sesión</a>
+                </li>
+            </ul>
+            <form class="form-inline my-2 my-lg-0">
+                <input class="form-control mr-sm-2" type="search" placeholder="Nombre Cliente" aria-label="Buscar">
+                <button class="btn btn-outline-success my-2 my-sm-0" type="submit"><i class="fas fa-search">Buscar</i></button>
+            </form>
+        </div>
+    </nav>
+    <div class="main" id="main">
+        <h2>Listado de Clientes a tu cargo:</h2>
+        <!--<div class="card">
+            <img src="usuario.jpg" class="card-img-top" alt="Usuario Imagen" width="25px" width="25px">
+            <div class="card-body">
+                <h5 class="card-title"><label type="text" id="NombreyApellidoOut">asdasd</label></h5>
+                    <div class="info-cliente-enunciado">
+                        <i style="float: left" class="fas fa-id-card"></i>
+                        <i style="float: right" class="fas fa-id-card"></i>
+                        <strong>Dni: </strong><br>
+                        <label type="text" id="DniOut">$Nombre$</label>
+                    </div>
+                        <div class="info-cliente-enunciado">
+                            <i style="float: left" class="fas fa-euro-sign"></i>
+                            <i style="float: right" class="fas fa-euro-sign"></i>
+                            <strong>Cuota</strong><br>
+                            <label type="number" id="CuotaOut"></label>
+                        </div>
+                        <div class="info-cliente-enunciado">
+                            <i style="float: left" class="fas fa-phone-volume"></i>
+                            <i style="float: right" class="fas fa-phone-volume"></i>
+                            <strong>Numero de Telefono</strong><br>
+                            <label type="text" id="TlfOut"></label>
+                        </div>
+                        <div class="info-cliente-enunciado">
+                            <i style="float: left" class="fas fa-envelope"></i>
+                            <i style="float: right" class="fas fa-envelope"></i>
+                            <strong>Correo Electrónico</strong><br>
+                            <label type="text" id="EmailOut"></label>
+                        </div>
+                        <div class="info-cliente-enunciado">
+                                <i style="float: left" class="fas fa-paw"></i>
+                                <i style="float: right" class="fas fa-paw"></i>
+                            <strong>Mascota</strong><br>
+                            <label type="text" id="MascotaOut"></label>
+                        </div>
+                    <a href="ServiciosCliente.html"><button  type="button" class="btn btn-primary">Servicios del Cliente <i class="fas fa-shield-alt"></i></button></a>
+                    <a href="HistorialNotificacionesEmpleado.html"><button type="button" class="btn btn-warning">Historial de Notificaciones <i class="fas fa-bell"></i></button></a>
+                    <button type="button" class="btn btn-info">Claves y Contactos <i class="fas fa-key"></i> <i class="fas fa-users"></i></button>
+                    <a href="EditUsuario.html"><button type="button" class="btn btn-secondary">Editar Cliente <i class="fas fa-user-edit"></i></button></a>
+                    <button type="button" class="btn btn-danger"value = "EliminarUser" onclick = "getConfirmation();">Eliminar Cliente <i class="fas fa-user-times"></i></button>
+                </div>
+        </div>-->
+    </div>
+</body>
+<script src="https://ajax.googleapis.com/ajax/libs/jquery/2.1.3/jquery.min.js"></script> 
+<script type = "text/javascript">
+       function getConfirmation() 
+        {
+            swal({
+            title: "¿Estás segura/o de eliminar un Cliente de forma permanente?",
+            text: "Una vez borrado el Cliente no podrás acceder a él y perderás todos sus datos almacenados en la aplicación",
+            icon: "warning",
+            buttons: true,
+            dangerMode: true,
+            })
+            .then((willDelete) => {
+            if (willDelete) {
+                swal("El Cliente ha sido borrado con éxito.", {
+                icon: "success",
+                });
+            } 
+            });
+        }
+        function info()
+        {
+            swal({
+                title: "Información básica sobre la aplicación:",
+                text: "Cada tarjeta representa un Cliente a tu cargo con sus datos y funciones correspondientes, en caso de alguna otra duda puede consultar este correo 'ayudaempleados@segdom.com' o contactar con su Encargado",
+                icon: "info",
+                button: "Entendido",
+                });
+        }
+        function inicio()
+        {
+            //Genera el código html por cada cliente que esté en el localStorage
+            var cliente;
+            var main=document.getElementById("main");
+            for(var i =0; i < localStorage.length; i++)
+            {
+                if(localStorage.getItem("Cliente"+i))
+                {
+                    cliente= localStorage.getItem("Cliente"+i);
+                    cliente= JSON.parse(cliente);
+                    var card_cliente = document.createElement("div");
+                    card_cliente.className="card";
+                    card_cliente.setAttribute("id","card_cliente"+i);
+                    card_cliente.innerHTML = '<img src="https://img.icons8.com/ios/100/000000/user-filled.png" class="card-img-top" alt="Usuario Imagen" width="25px" width="25px">';                   
+                    document.getElementById("main").appendChild(card_cliente);
+                    var card_cliente_body = document.createElement("div");
+                    card_cliente_body.className="card-body";
+                    card_cliente_body.setAttribute("id","card_cliente_body"+i);
+                    document.getElementById("card_cliente"+i).appendChild(card_cliente_body);
+                    card_cliente_body.innerHTML='<h5 class="card-title"><label type="text" id="NombreyApellidoOut">'+cliente.nombre+' '+ cliente.apellido+'</label></h5>'; 
+                    
+                    var card_cliente_body_element=document.createElement("div");
+                    card_cliente_body_element.className="info-cliente-enunciado";
+                    card_cliente_body_element.setAttribute("id","card_cliente_body_element"+i);
+                    document.getElementById("card_cliente_body"+i).appendChild(card_cliente_body_element);
+                    card_cliente_body_element.innerHTML='<i style="float: left" class="fas fa-id-card"></i>';
+                    card_cliente_body_element.innerHTML+='<strong>Dni: </strong><br>'
+                    card_cliente_body_element.innerHTML+='<label type="text" id="DniOut">'+cliente.dni+'</label>';
+
+                    var card_cliente_body_element=document.createElement("div");
+                    card_cliente_body_element.className="info-cliente-enunciado";
+                    card_cliente_body_element.setAttribute("id","card_cliente_body_element"+i);
+                    document.getElementById("card_cliente_body"+i).appendChild(card_cliente_body_element);
+                    card_cliente_body_element.innerHTML='<i style="float: left" class="fas fa-euro-sign"></i>';
+                    card_cliente_body_element.innerHTML+='<strong>Cuota: </strong><br>'
+                    card_cliente_body_element.innerHTML+='<label type="text" id="cuotaOut">'+cliente.cuota+'</label>';
+
+                    var card_cliente_body_element=document.createElement("div");
+                    card_cliente_body_element.className="info-cliente-enunciado";
+                    card_cliente_body_element.setAttribute("id","card_cliente_body_element"+i);
+                    document.getElementById("card_cliente_body"+i).appendChild(card_cliente_body_element);
+                    card_cliente_body_element.innerHTML='<i style="float: left" class="fas fa-phone-volume"></i>';
+                    card_cliente_body_element.innerHTML+='<strong>Teléfono: </strong><br>'
+                    card_cliente_body_element.innerHTML+='<label type="text" id="tlfOut">'+cliente.n_tlf+'</label>';
+
+                    var card_cliente_body_element=document.createElement("div");
+                    card_cliente_body_element.className="info-cliente-enunciado";
+                    card_cliente_body_element.setAttribute("id","card_cliente_body_element"+i);
+                    document.getElementById("card_cliente_body"+i).appendChild(card_cliente_body_element);
+                    card_cliente_body_element.innerHTML='<i style="float: left" class="fas fa-envelope"></i>';
+                    card_cliente_body_element.innerHTML+='<strong>Correo electrónico: </strong><br>'
+                    card_cliente_body_element.innerHTML+='<label type="text" id="emailOut">'+cliente.email+'</label>';
+
+                    var card_cliente_body_element=document.createElement("div");
+                    card_cliente_body_element.className="info-cliente-enunciado";
+                    card_cliente_body_element.setAttribute("id","card_cliente_body_element"+i);
+                    document.getElementById("card_cliente_body"+i).appendChild(card_cliente_body_element);
+                    card_cliente_body_element.innerHTML='<i style="float: left" class="fas fa-paw"></i>';
+                    card_cliente_body_element.innerHTML+='<strong>Mascota: </strong><br>'
+                    card_cliente_body_element.innerHTML+='<label type="text" id="emailOut">'+cliente.mascota+'</label>';
+                    
+                    var card_cliente_body_botones=document.createElement("p");
+                    card_cliente_body_botones.setAttribute("id","card_cliente_body_botones"+i);
+                    document.getElementById("card_cliente_body"+i).appendChild(card_cliente_body_botones);
+                    card_cliente_body_botones.innerHTML='<br><a href="ServiciosCliente.html"><button name="servicios_cliente"id="'+i+'"type="button" class="btn btn-primary">Servicios del Cliente <i class="fas fa-shield-alt"></i></button></a>';
+                    card_cliente_body_botones.innerHTML+='<a href="HistorialNotificacionesEmpleado.html"><button type="button" id="not_cliente'+i+ '"class="btn btn-warning">Historial de Notificaciones <i class="fas fa-bell"></i></button></a>';
+                    card_cliente_body_botones.innerHTML+= '<a href="ContactosyClaves.html"><button type="button"id="clav_cont_cliente'+i+'" class="btn btn-info">Claves y Contactos <i class="fas fa-key"></i> <i class="fas fa-users"></i></button></a>'
+                    card_cliente_body_botones.innerHTML+='<a href="EditUsuario.html"><button type="button"id="'+i+'" name="edit_cliente"class="btn btn-secondary">Editar Cliente <i class="fas fa-user-edit"></i></button></a>';
+                    card_cliente_body_botones.innerHTML+='<button type="button"id="'+i+'" class="btn btn-danger"value = "EliminarUser" onclick = "getConfirmation();">Eliminar Cliente <i class="fas fa-user-times"></i></button>'
+                }
+            }
+        }
+        $(function() {
+        $(document).on('click', 'button[value="EliminarUser"]', function(event) 
+        {
+            let id = this.id;
+            console.log("Se presionó el Boton con Id :"+ id)
+            localStorage.setItem("Actualizacion Cliente", "true");
+            localStorage.setItem("IdClienteBorrar",id);
+        });
+        $(document).on('click', 'button[name="servicios_cliente"]', function(event) 
+        {
+            let id = this.id;
+            console.log("Se presionó el Boton con Id :"+ id)
+            localStorage.setItem("Actualizacion Cliente", "true");
+            localStorage.setItem("IdClienteServicios",id);
+        });
+        $(document).on('click', 'button[name="edit_cliente"]', function(event) 
+        {
+            let id = this.id;
+            console.log("Se presionó el Boton con Id :"+ id)
+            localStorage.setItem("Actualizacion Cliente", "true");
+            localStorage.setItem("IdClienteEditar",id);
+        });
+
+        $(document).on('click', 'button[class="swal-button swal-button--confirm swal-button--danger"]', function(event) 
+        {
+            let id_delete=localStorage.getItem("IdClienteBorrar");
+            localStorage.removeItem("Cliente"+id_delete);
+            for(var i=0;i<localStorage.length;i++)
+            {
+                localStorage.removeItem("ServicioCliente"+i+"Cliente"+id_delete);
+            }
+            
+        });
+        $(document).on('click', 'button[class="swal-button swal-button--confirm"]', function(event) 
+        {
+            location.reload();
+        });
+    });
+ </script>  
+</html>

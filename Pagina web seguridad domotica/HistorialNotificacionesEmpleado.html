@@ -1,0 +1,263 @@
+<html>
+    <head>
+        <link rel="icon" type="image/png" href="escudo.png">
+        <title>Historial notificaciones</title>
+        <meta charset="UTF-8">
+        <meta name="viewport" content="width=device-width, initial-scale=1.0">
+        <link rel="stylesheet" href="https://stackpath.bootstrapcdn.com/bootstrap/4.3.1/css/bootstrap.min.css" integrity="sha384-ggOyR0iXCbMQv3Xipma34MD+dH/1fQ784/j6cY/iJTQUOhcWr7x9JvoRxT2MZw1T" crossorigin="anonymous">
+<script src="https://stackpath.bootstrapcdn.com/bootstrap/4.3.1/js/bootstrap.min.js" integrity="sha384-JjSmVgyd0p3pXB1rRibZUAYoIIy6OrQ6VrjIEaFf/nJGzIxFDsf4x0xIM+B07jRM" crossorigin="anonymous"></script>
+        <link rel="stylesheet" href="https://stackpath.bootstrapcdn.com/bootstrap/4.3.1/css/bootstrap.min.css"
+            integrity="sha384-ggOyR0iXCbMQv3Xipma34MD+dH/1fQ784/j6cY/iJTQUOhcWr7x9JvoRxT2MZw1T" crossorigin="anonymous">
+        <script src="https://ajax.googleapis.com/ajax/libs/jquery/3.4.0/jquery.min.js"></script>
+        <script src="https://unpkg.com/sweetalert/dist/sweetalert.min.js"></script>
+        <script src="https://cdnjs.cloudflare.com/ajax/libs/popper.js/1.14.7/umd/popper.min.js"
+            integrity="sha384-UO2eT0CpHqdSJQ6hJty5KVphtPhzWj9WO1clHTMGa3JDZwrnQq4sF86dIHNDz0W1"
+            crossorigin="anonymous"></script>
+        <script src="https://stackpath.bootstrapcdn.com/bootstrap/4.3.1/js/bootstrap.min.js"
+            integrity="sha384-JjSmVgyd0p3pXB1rRibZUAYoIIy6OrQ6VrjIEaFf/nJGzIxFDsf4x0xIM+B07jRM"
+            crossorigin="anonymous"></script>
+        <meta http-equiv="X-UA-Compatible" content="ie=edge">
+        <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/normalize/8.0.1/normalize.css">
+        <link rel="stylesheet" href="styles.css">
+        <link rel="stylesheet" href="https://use.fontawesome.com/releases/v5.8.0/css/all.css">
+        <link rel="stylesheet" href="https://fonts.googleapis.com/icon?family=Material+Icons">
+        <style>
+            body
+            {
+                background-color: #efe1e6;
+            }
+            .bg-light 
+            {
+                background-color: #99badc !important;
+            }
+            .main 
+            {
+                width: 70%;
+                margin: 0 auto;
+                padding-top: 20px;
+                text-align: center;
+            }
+            .text-center {
+                text-align: center!important;
+                margin:5 auto;
+            }
+           
+            .accordion-container {
+            width: 100%;
+            margin: 0 0 20px;
+            clear:both;
+            }
+
+            .accordion-titulo {
+            position: relative;
+            display: block;
+            padding: 20px;
+            font-size: 24px;
+            font-weight: 300;
+            background: #2c3e50;
+            color: #fff;
+            text-decoration: none;
+            font-weight: 400;
+            }
+            .accordion-titulo.open {
+            background: #16a085;
+            color: #fff;
+            }
+
+            .accordion-titulo span.toggle-icon:before {
+            content:"+";
+            }
+
+            .accordion-titulo.open span.toggle-icon:before {
+            content:"-";
+            }
+            .accordion-titulo span.toggle-icon {
+            position: absolute;
+            top: 5px;
+            right: 20px;
+            font-size: 38px;
+            font-weight:bold;
+            }
+            .accordion-titulo i {
+            position: absolute;
+            top: 25px;
+            left: 20px;
+            font-size: 25px;
+            font-weight:bold;
+            }
+
+            .accordion-content {
+            display: none;
+            padding: 20px;
+            overflow: auto;
+            border: 5px solid;
+            border-color: inherit;
+            border-top: none;
+            border-bottom-right-radius: 10px;
+            border-bottom-left-radius: 10px;
+            }
+            .notif-header{
+                display: flex;
+                align-items: center;
+                justify-content: space-between;
+                background-color: #a9a9a9;
+            }
+            .notif-header div{
+                padding: 5px;
+            }
+            .notif-container
+            {
+                
+                border-left: 2px solid #a9a9a9;
+                border-right: 2px solid #a9a9a9;
+                border-top: 2px solid #a9a9a9;
+                display: flex;
+                align-items: center;
+                justify-content: space-between;
+            }
+            .not-container-info
+            {
+                margin: 0 10;
+            }
+        </style>
+    </head>
+
+<body>
+    <nav class="navbar navbar-expand-lg navbar-light bg-light">
+        <a class="navbar-brand">Historial de Notificaciones</a>
+        <button class="navbar-toggler" type="button" data-toggle="collapse" data-target="#navbarSupportedContent"
+            aria-controls="navbarSupportedContent" aria-expanded="false" aria-label="Toggle navigation">
+            <span class="navbar-toggler-icon"></span>
+        </button>
+        <div class="collapse navbar-collapse" id="navbarSupportedContent">
+            <ul class="navbar-nav mr-auto">
+                <li class="nav-item">
+                    <a class="nav-link" href="HomeEmpleado.html"><i class="fas fa-home"></i> Inicio </a>
+                </li>
+                <li class="nav-item">
+                    <a class="nav-link" href="LoginApp.html"><i class="fas fa-sign-out-alt"></i> Cerrar Sesión</a>
+                </li>
+            </ul>
+        </div>
+    </nav>
+    <div class="main" id="container-main">
+            
+                <div class="accordion-container">
+                
+                    <a href="#" style ="background: #ff9b20;color: #000;"class="accordion-titulo"><i class="fas fa-fire"></i> Notificaciones de Incendio<span class="toggle-icon"></span></a>
+                    <div style="border-color:#ff9b20" class="accordion-content">
+                        <div class="card text-center" style="background-color: #fbce97;">
+                                <div class="card-body">
+                                    <h5 class="card-title">Detector Humo 3</h5>
+                                    <p class="card-text">La alarma ha saltado en Despacho1</p>
+                                    <p>Fecha: 20/12/85</p>
+                                    <p>Hora: 15:35 </p>
+                                    
+                                </div>
+                        </div>                       
+                    </div>
+                    
+                </div>
+                
+                <div class="accordion-container">
+                    <a href="#" style="background: #c73232;color: #000"class="accordion-titulo"><i class="fas fa-user-ninja"></i> Notificaciones de Intrusión<span class="toggle-icon"></span></a>
+                    <div style="border-color:#c73232"class="accordion-content">
+                            <div class="card text-center" style="background-color: #e87c7c;">
+                                    <div class="card-body">
+                                        <h5 class="card-title">Alarma 1</h5>
+                                        <p class="card-text">La alarma ha saltado en Puerta 2</p>
+                                        <p>Fecha: 20/12/85</p>
+                                        <p>Hora: 15:35 </p>
+                                    </div>
+                            </div>
+                            <div class="card text-center" style="background-color: #e87c7c;">
+                                    <div class="card-body">
+                                        <h5 class="card-title">Alarma 2</h5>
+                                        <p class="card-text">La alarma ha saltado en Puerta 1</p>
+                                        <p>Fecha: 20/12/85</p>
+                                        <p>Hora: 15:45 </p>
+                                    </div>
+                            </div>  
+                    </div>
+                </div>
+                <div class="accordion-container">
+                        <a href="#" style="background: #05bff7;color: #000"class="accordion-titulo"><i class="fas fa-running"></i> Notificaciones de Movimiento<span class="toggle-icon"></span></a>
+                        <div style="border-color:#05bff7" class="accordion-content">
+                            <div class="card text-center" style="background-color: #88d4ea;">
+                                    <div class="card-body">
+                                        <h5 class="card-title">Detector movimiento 3</h5>
+                                        <p class="card-text">La alarma ha saltado en Sala de Servidores</p>
+                                        <p>Fecha: 20/12/85</p>
+                                        <p>Hora: 15:35 </p>
+                                        
+                                    </div>
+                            </div>
+                        </div>
+                </div>
+                <div class="accordion-container">
+                        <a href="#" style="background: #969595;color: #000"class="accordion-titulo"><i class="fas fa-tools"></i> Notificaciones de Mantenimiento<span class="toggle-icon"></span></a>
+                        <div style="border-color:#969595" class="accordion-content">
+                            <div class="card text-center" style="background-color: #e4e1e1;"> 
+                                <div class="card-body">
+                                        <h5 class="card-title">Mantenimiento 1</h5>
+                                        <p class="card-text">Se ha realizado el Mantenimiento en Baño 3</p>
+                                        <p>Fecha: 20/12/85</p>
+                                        <p>Hora: 15:35 </p>
+                                        
+                                    </div>
+                                </div>
+                        </div>
+                </div>
+                <div class="accordion-container">
+                        <a href="#" style="background: #fff700;color: #000"class="accordion-titulo"><i class="fas fa-hard-hat"></i> Notificaciones de Avería<span class="toggle-icon"></span></a>
+                        <div style="border-color:#fff700" class="accordion-content">
+                                <div class="card text-center" style="background-color: #fffca6;"> 
+                                        <div class="card-body">
+                                                <h5 class="card-title">Reparación 1</h5>
+                                                <p class="card-text">Se ha realizado una Reparación en Baño 3</p>
+                                                <p>Causa: Fuga de Agua</p>
+                                                <p>Fecha: 20/12/85</p>
+                                                <p>Hora: 15:35 </p>
+                                                
+                                            </div>
+                                        </div>
+                                </div>
+                </div>
+                <div class="accordion-container">
+                        <a href="#" style="background: #38dc1a;color: #000"class="accordion-titulo"><i class="fas fa-exclamation"></i> Otras Notificaciones<span class="toggle-icon"></span></a>
+                        <div style="border-color:#38dc1a" class="accordion-content">
+                                <div class="card text-center" style="background-color: #b1e8a7;"> 
+                                        <div class="card-body">
+                                                <h5 class="card-title">Aumento de Temperatura</h5>
+                                                <p class="card-text">La temperatura ha ascendido notablemente en Sala de Servidores 12</p>
+                                                <p>Fecha: 20/12/85</p>
+                                                <p>Hora: 15:35 </p>
+                                                
+                                            </div>
+                                        </div>
+                                </div>
+                </div>
+            
+            </div>
+</body>
+<script type = "text/javascript">
+    $(function(){
+        $(".accordion-titulo").click(function(e)
+        {    
+                e.preventDefault();
+            
+                var contenido=$(this).next(".accordion-content");
+
+                if(contenido.css("display")=="none"){ //open		
+                contenido.slideDown(250);			
+                $(this).addClass("open");
+                }
+                else{ //close		
+                contenido.slideUp(250);
+                $(this).removeClass("open");	
+                }
+
+            });
+        });
+ </script>  
+</html>

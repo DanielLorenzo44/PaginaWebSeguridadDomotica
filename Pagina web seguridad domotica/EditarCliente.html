@@ -1,0 +1,288 @@
+<html>
+    <head>
+            <link rel="icon" type="image/png" href="escudo.png">
+            <title>Editar Cliente</title>
+            <meta charset="UTF-8">
+            <meta name="viewport" content="width=device-width, initial-scale=1.0">
+            <link rel="stylesheet" href="https://stackpath.bootstrapcdn.com/bootstrap/4.3.1/css/bootstrap.min.css"
+                integrity="sha384-ggOyR0iXCbMQv3Xipma34MD+dH/1fQ784/j6cY/iJTQUOhcWr7x9JvoRxT2MZw1T" crossorigin="anonymous">
+            <script src="https://code.jquery.com/jquery-3.3.1.slim.min.js"
+                integrity="sha384-q8i/X+965DzO0rT7abK41JStQIAqVgRVzpbzo5smXKp4YfRvH+8abtTE1Pi6jizo"
+                crossorigin="anonymous"></script>
+            <script src="https://unpkg.com/sweetalert/dist/sweetalert.min.js"></script>
+            <script src="https://cdnjs.cloudflare.com/ajax/libs/popper.js/1.14.7/umd/popper.min.js"
+                integrity="sha384-UO2eT0CpHqdSJQ6hJty5KVphtPhzWj9WO1clHTMGa3JDZwrnQq4sF86dIHNDz0W1"
+                crossorigin="anonymous"></script>
+            <script src="https://stackpath.bootstrapcdn.com/bootstrap/4.3.1/js/bootstrap.min.js"
+                integrity="sha384-JjSmVgyd0p3pXB1rRibZUAYoIIy6OrQ6VrjIEaFf/nJGzIxFDsf4x0xIM+B07jRM"
+                crossorigin="anonymous"></script>
+            <meta http-equiv="X-UA-Compatible" content="ie=edge">
+            <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/normalize/8.0.1/normalize.css">
+            <link rel="stylesheet" href="styles.css">
+            <link rel="stylesheet" href="https://use.fontawesome.com/releases/v5.8.0/css/all.css">
+            <link rel="stylesheet" href="https://fonts.googleapis.com/icon?family=Material+Icons">
+        <style>
+            body
+            {
+                background-color: #efe1e6;
+            }
+            .bg-light 
+            {
+                background-color: #99badc !important;
+            }
+            .main 
+            {
+                width: 70%;
+                margin: 0 auto;
+                padding-top: 20px;
+                padding-bottom: 60px;
+                text-align: center;
+            } 
+            .form-cliente
+            {
+                background-color: #dbe6f1;
+                margin: 0 auto;
+                width: fit-content;
+                padding: 10px;
+                border: 10px inset #7b7b7b;
+                border-radius: 10%;
+                text-align: left;
+            }
+            .p-form
+            {
+                margin: 0;
+                padding: 5px 0;
+                text-align: center;
+            }
+            .SumitBoton
+            {
+                text-align: center;
+                margin-top: 15;
+                background-color: #a5a2a2;
+                border-style: solid;
+                border-radius: 10px;
+                padding: 5px;
+                border-color: black;
+                margin: 20 auto;
+                display: block;
+            }
+            .check
+            {
+                width: 20px;
+                height: 20px;
+                margin-left: 20px;
+                margin-top: 10px;
+            }
+                    .navbar {
+            position: relative;
+            min-height: 50px;
+            display: block;
+            padding-top: 12px;
+            padding-bottom: 12px;
+            background-color: #99badc;
+        }
+        .fixed-bottom-bar {
+            position: fixed;
+            min-height: 30px;
+            background-color: #99badc;
+            bottom: 0;
+            width: 100%;
+            padding: 4px 15px;
+            box-sizing: border-box;
+        }
+
+        .fixed-bottom-bar ul {
+            padding: 0;
+            margin: 0;
+            align-items: center;
+            flex-wrap: wrap;
+            justify-content: space-between;
+            display: flex;
+            list-style: none;
+        }
+
+        .fixed-bottom-bar ul li {
+            padding: 4px 15px;
+            color: #FFFFFF;
+            font-size: 12pt;
+        }
+
+        .flex-navbar {
+            display: flex;
+            align-items: center;
+            flex-wrap: wrap;
+            justify-content: space-between;
+            list-style: none;
+            margin: 0;
+            color: black;
+            font-size: 18px;
+            margin-inline-end: 40px;
+        }
+        .account-item a{
+            color: black;
+            text-decoration: none;
+            padding: 6px 8px;
+            font-size: 18pt;
+            box-sizing: border-box;
+
+        }
+        li:hover{
+                background: #85C1E9;
+            }
+        </style>
+    </head>
+
+<body>
+    <nav class="navbar">
+            <ul class="flex-navbar">
+                <strong>EDITAR</strong> 
+                <li class="account-item">
+                    <a href="LoginApp.html">
+                      <i style="font-size: 22px;" class="fas fa-sign-out-alt"> Cerrar Sesión</i>
+                    </a>
+                </li>
+            </ul>
+    </nav>
+    <div class="main">
+                <div class="form-cliente">
+                        <form id="formADD1">
+                                <p>Rellene <strong>solo</strong> los campos que quiera <strong>cambiar</strong></p>
+                                 <p class="p-form">Nombre <i class="fas fa-file-signature"></i>:</p>  
+                                 <input type="text" class ="form-control" name="nombre" id="NombreEdittxt1" size="20"  placeholder="Nombre" 
+                                 pattern="([A-Z]|[a-z]){2,60}">
+        
+                                 <p class="p-form">Apellido <i class="fas fa-file-signature"></i>:</p>  
+                                 <input type="text" class ="form-control" name="apellido"id="ApellidoAddtxt1" size="20"  placeholder="Apellido" 
+                                 pattern="([A-Z]|[a-z]){2,60}">
+        
+                                 <p class="p-form">Cuota <i class="fas fa-euro-sign"></i>: </p>
+                                 <input type="number" class ="form-control" min="0" max="99999999" name="CuotaAddtxt1" id="CuotaAddClientetxt"size="15"  placeholder="Cuota" >
+             
+                                 <p class="p-form">Dni <i class="fas fa-id-card"></i>: </p>
+                                 <input type="text" class ="form-control" name="dni"id="DNIAddClientetxt1"size="15"  placeholder="DNI con letra" 
+                                 pattern="([0-9]{8})([A-Z]{1})">
+             
+                                 <p class="p-form">Teléfono <i class="fas fa-phone"></i>: </p>
+                                 <input type="tel" class ="form-control" name="telefono"id="TlfAddClientetxt1"size="15"  placeholder="Teléfono" 
+                                 pattern="[0-9]{9}">
+                             
+                                 <p class="p-form">Email <i class="far fa-envelope"></i>: </p>
+                                 <input type="text" class ="form-control" name="email" id="EmailAddClientetxt1"size="15"  placeholder="usuario@dom.xyz" 
+                                 pattern="^[a-zA-Z0-9.!#$%&'*+/=?^_`{|}~-]+@[a-zA-Z0-9-]+(?:\.[a-zA-Z0-9-]+)*$">
+                                 <p class="p-form">Mascotas <i class="fas fa-paw"></i>:
+                                     <select name="mascota"  class ="form-control" id="MascotasAddClientetxt1" >                           
+             
+                                         <option>No</option>
+             
+                                         <option>Perro</option>
+                                         
+                                         <option>Gato</option>
+                                         
+                                         <option>Otro</option>
+                                     </select>
+                                 </p>
+                            <a href="PerfilCliente.html" style="text-decoration: none;">
+                            <button class="SumitBoton" onclick=editarCliente1(); id="BotonCliente1" type="button">Guardar <img src="https://img.icons8.com/ios/100/000000/save-filled.png" width="18px"></button></a>
+                         </form>
+            </div>
+</div>
+<div class="fixed-bottom-bar">
+        <ul>
+            <li>
+                <a style="color:black; text-decoration: none;" href="NotificacionesCliente.html">
+                    <i style="font-size: 30px" class="fas fa-bell"></i>
+                     
+                </a>                
+            </li>
+            <li>
+                <a style="color:black; text-decoration:none;" href="HomeCliente.html">
+                    <i style="font-size: 30px" class="fas fa-home"></i>
+                     
+                </a>
+            </li>
+            <li>
+                <a style="color:black; text-decoration: none;" href="PerfilCliente.html">
+                    <i style="font-size: 30px" class="fas fa-user"></i>
+                     
+                </a>
+            </li>
+        </ul>
+    </div>
+</body> 
+<script type = "text/javascript">
+function editarCliente1()
+{
+    var id_edit=localStorage.getItem("IdClienteEditar");
+
+    for(var i =0; i < localStorage.length; i++)//Obtenemos el cliente correspondiente del localStorage
+        {
+            if(localStorage.getItem("Cliente"+i) && i==localStorage.getItem("IdClienteEditar"))
+            {
+                console.log(i);
+                cliente= localStorage.getItem("Cliente"+i);
+                cliente= JSON.parse(cliente);
+            }
+        }
+
+        var nombre,dni,n_tlf,cuota,mascota,email,cliente_editado;
+            nombre = /([A-Z]|[a-z]){2,60}/;
+            dni = /([0-9]{8})([A-Z]{1})/;
+            n_tlf = /[0-9]{9}/;
+            email = /^[a-zA-Z0-9.!#$%&'*+/=?^_`{|}~-]+@[a-zA-Z0-9-]+(?:\.[a-zA-Z0-9-]+)*$/;
+            cliente_editado=false
+        
+            if(document.getElementById("NombreEdittxt1").value.length>1 && nombre.test(document.getElementById("NombreEdittxt1").value))
+                {            
+                    cliente.nombre=document.getElementById("NombreEdittxt1").value;
+                    cliente_editado=true;
+                }
+            if(document.getElementById("ApellidoAddtxt1").value.length>1 && nombre.test(document.getElementById("ApellidoAddtxt1").value))
+                {
+                    cliente.apellido=document.getElementById("ApellidoAddtxt1").value;
+                    cliente_editado=true;
+                }
+
+            if(document.getElementById("CuotaAddClientetxt1").value>=0)
+                {
+                    cliente.cuota=document.getElementById("CuotaAddClientetxt1").value;
+                    cliente_editado=true;
+                }
+
+            if(document.getElementById("DNIAddClientetxt1").value.length >1 && dni.test(document.getElementById("DNIAddClientetxt1").value))
+                {
+                    cliente.dni=document.getElementById("DNIAddClientetxt1").value;
+                    cliente_editado=true;
+                }
+            
+            if(document.getElementById("TlfAddClientetxt1").value.length >1 && n_tlf.test(document.getElementById("TlfAddClientetxt1").value))
+                {
+                    cliente.n_tlf=document.getElementById("TlfAddClientetxt1").value;
+                    cliente_editado=true;
+                }
+
+            if(document.getElementById("EmailAddClientetxt1").value.length >1 && email.test(document.getElementById("EmailAddClientetxt1").value))
+                {
+                    cliente.email=document.getElementById("EmailAddClientetxt1").value;
+                    cliente_editado=true;
+                }
+
+            if(document.getElementById("MascotasAddClientetxt1").value!=cliente.mascota && document.getElementById("MascotasAddClientetxt1").value!="-")
+                {
+                    cliente.mascota=document.getElementById("MascotasAddClientetxt1").value;
+                    cliente_editado=true;
+                }
+            
+            
+           
+            if(cliente_editado)
+            {
+                var decison=confirm("¿Seguro que quiere editar el Cliente?")
+                if(confirm)
+                {
+                    alert("Cliente editado correctamente");
+                }
+                localStorage.setItem("Cliente"+id_edit,JSON.stringify(cliente));
+            }
+}
+</script>
+</html>

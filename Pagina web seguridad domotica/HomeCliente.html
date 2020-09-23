@@ -1,0 +1,270 @@
+<html>
+<head>
+        <link rel="icon" type="image/png" href="escudo.png">
+        <title>Inicio Cliente</title>
+        <meta charset="UTF-8">
+        <meta name="viewport" content="width=device-width, initial-scale=1.0">
+        <link rel="stylesheet" href="https://stackpath.bootstrapcdn.com/bootstrap/4.3.1/css/bootstrap.min.css"
+            integrity="sha384-ggOyR0iXCbMQv3Xipma34MD+dH/1fQ784/j6cY/iJTQUOhcWr7x9JvoRxT2MZw1T" crossorigin="anonymous">
+        <script src="https://code.jquery.com/jquery-3.3.1.slim.min.js"
+            integrity="sha384-q8i/X+965DzO0rT7abK41JStQIAqVgRVzpbzo5smXKp4YfRvH+8abtTE1Pi6jizo"
+            crossorigin="anonymous"></script>
+        <script src="https://unpkg.com/sweetalert/dist/sweetalert.min.js"></script>
+        <script src="https://cdnjs.cloudflare.com/ajax/libs/popper.js/1.14.7/umd/popper.min.js"
+            integrity="sha384-UO2eT0CpHqdSJQ6hJty5KVphtPhzWj9WO1clHTMGa3JDZwrnQq4sF86dIHNDz0W1"
+            crossorigin="anonymous"></script>
+        <script src="https://stackpath.bootstrapcdn.com/bootstrap/4.3.1/js/bootstrap.min.js"
+            integrity="sha384-JjSmVgyd0p3pXB1rRibZUAYoIIy6OrQ6VrjIEaFf/nJGzIxFDsf4x0xIM+B07jRM"
+            crossorigin="anonymous"></script>
+        <meta http-equiv="X-UA-Compatible" content="ie=edge">
+        <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/normalize/8.0.1/normalize.css">
+        <link rel="stylesheet" href="styles.css">
+        <link rel="stylesheet" href="https://use.fontawesome.com/releases/v5.8.0/css/all.css">
+        <link rel="stylesheet" href="https://fonts.googleapis.com/icon?family=Material+Icons">
+        <meta name="viewport" content="width=device-width, initial-scale=1, shrink-to-fit=no">
+
+        <style>
+            body
+            {
+                background-color: #FFFFFF;
+            }
+            .bg-light 
+            {
+                background-color: #99badc !important;
+            }
+            .main 
+            {
+                width: 70%;
+                margin: 0 auto;
+                padding-top: 20px;
+                text-align: center;
+                padding-bottom: 45px;
+                
+            }
+            .card-img-top {
+                width: 15%;
+                margin: 5 auto;
+            }
+            .card 
+            {
+                width: 50%;
+                position: relative;
+                display: -ms-flexbox;
+                display: flex;
+                -ms-flex-direction: column;
+                flex-direction: column;
+                min-width: 0;
+                max-width: 55%;
+                word-wrap: break-word;
+                background-color: #e3d8d4;
+                background-clip: border-box;
+                border: 5px solid rgba(0, 0, 0, 0.125);
+                border-radius: 20px;
+                margin: 20 auto;
+            }
+            .btn 
+            {
+                margin: 10px
+            }
+            .info-cliente
+            {
+                list-style: none;
+            }
+            .info-cliente-enunciado
+            {
+                background-color: #EDE7CD;
+                color:black;
+                border-radius: 10px;
+                display: block;
+                max-width: 70%;
+                margin: 5 auto;
+                padding: 5px;
+                border-left: 6px solid #a84122;
+                border-right: 6px solid #a84122;
+            }
+            .icono-card {
+            font-size: 50px;
+            padding: 10px;
+        	}
+            .btn-info {
+            color: #fff;
+            background-color: #006267;
+            border-color: #006267;
+            }
+            .boton-info
+            {
+                background: deepskyblue;
+                border-radius: 50%;
+                width: 40px;
+                height: 40px;
+            }
+            label 
+            {
+                display: contents;
+                margin-bottom: .5rem;
+            }
+            li:hover{
+            	background: #85C1E9;
+            }
+            .navbar {
+			position: relative;
+			min-height: 50px;
+			display: block;
+			padding-top: 12px;
+			padding-bottom: 12px;
+			background-color: #99badc;
+		}
+		.fixed-bottom-bar {
+			position: fixed;
+			min-height: 30px;
+			background-color: #99badc;
+			bottom: 0;
+			width: 100%;
+			padding: 4px 15px;
+			box-sizing: border-box;
+		}
+
+		.fixed-bottom-bar ul {
+			padding: 0;
+			margin: 0;
+			align-items: center;
+			flex-wrap: wrap;
+			justify-content: space-between;
+			display: flex;
+			list-style: none;
+		}
+
+		.fixed-bottom-bar ul li {
+			padding: 4px 15px;
+			color: #FFFFFF;
+			font-size: 12pt;
+		}
+
+		.flex-navbar {
+			display: flex;
+			align-items: center;
+			flex-wrap: wrap;
+			justify-content: space-between;
+			list-style: none;
+			margin: 0;
+			color: black;
+			font-size: 18px;
+			margin-inline-end: 40px;
+		}
+		.account-item a{
+			color: black;
+			text-decoration: none;
+			padding: 6px 8px;
+			font-size: 18pt;
+			box-sizing: border-box;
+
+		}
+
+
+        }
+        </style>
+    </head>
+   <body onload="inicio();">
+
+	  <nav class="navbar">
+			<ul class="flex-navbar">
+				<strong>CONTROL DOMÓTICO</strong> 
+                <li class="account-item">
+                   <strong> <a style="cursor: pointer; font-size: 14pt"onclick="info();"><i style="color: #5d9653" class="fas fa-plus"></i> Contratar nuevo servicio </a></strong>
+                </li>
+				<li class="account-item">
+					<a href="LoginApp.html">
+					  <i style="font-size: 22px;" class="fas fa-sign-out-alt"> Cerrar Sesión</i>
+					</a>
+				</li>
+			</ul>
+	</nav>
+    <div class="main" id="main">
+        <h2>Servicios contratados:</h2>
+        <div class="card">
+        	<i class="fas fa-door-open icono-card"></i>
+        	<a class="nav-link" href="Puertas.html"><font size = 5.5> Puertas </font></a>
+        </div>
+        <div class="card">
+        	<img class="card-img-top" src="https://img.icons8.com/ios/50/000000/elevator.png" width="25px" width="25px">
+        	<a class="nav-link" href="Ascensores.html"><font size = 5.5> Ascensores </font></a>
+        </div>
+        <div class="card">
+        	<img src="https://img.icons8.com/ios-glyphs/96/000000/frozen-window.png" class="card-img-top" alt="Ventanas y Persianas" width="25px" width="25px">
+        	<a class="nav-link" href="VentanasyPersianas.html"><font size = 5.5> Ventanas y persianas </font></a>	
+        </div>
+        <div class="card">
+        	<i class="fas fa-lightbulb icono-card"></i>
+        	<a class="nav-link" href="Luces.html"><font size = 5.5> Luces </font></a>	
+        </div>
+        <div class="card">
+        	<i class="fas fa-thermometer-half icono-card"></i>
+        	<a class="nav-link" href="Temperatura.html"><font size = 5.5> Temperatura </font></a>	
+        </div>
+        <div class="card">
+        	<img src="https://img.icons8.com/ios/100/000000/plug-filled.png"class="card-img-top" alt="Sistemas electronicos" width="25px" width="25px">
+        	<a class="nav-link" href="SistemasElectronicos.html"><font size = 5.5> Sistemas electrónicos </font></a>	
+        </div>
+        <div class="card">
+                <img src="https://img.icons8.com/metro/52/000000/secured-by-alarm-system.png" class="card-img-top" alt="Sistemas electronicos" width="25px" width="25px">
+                <a class="nav-link" href="Alarmas.html"><font size = 5.5> Alarmas </font></a>	
+        </div>
+        <div class="card">
+                <img src="https://img.icons8.com/metro/52/000000/bullet-camera.png" class="card-img-top" alt="Camaras" width="25px" width="25px">
+                <a class="nav-link" href="Camaras.html"><font size = 5.5> Cámaras </font></a>	
+        </div>
+            <div class="card">
+                <img src="https://img.icons8.com/metro/52/000000/electrical-sensor.png" class="card-img-top" alt="Sensores" width="25px" width="25px">
+                <a class="nav-link" href="Sensores.html"><font size = 5.5> Sensores </font></a>   
+        </div>
+    </div>
+
+	<div class="fixed-bottom-bar">
+		<ul>
+            <li>
+                <a style="color:black; text-decoration: none;" href="NotificacionesCliente.html">
+                    <i style="font-size: 30px" class="fas fa-bell"></i>
+                     
+                </a>                
+            </li>
+			<li>
+				<a style="color:black; text-decoration:none;" href="HomeCliente.html">
+					<i style="font-size: 30px" class="fas fa-home"></i>
+					 
+				</a>
+			</li>
+			<li>
+				<a style="color:black; text-decoration: none;" href="PerfilCliente.html">
+					<i style="font-size: 30px" class="fas fa-user"></i>
+					 
+				</a>
+			</li>
+		</ul>
+	</div>
+</body>
+
+<script src="js/jquery.js"></script>
+<script src="js/bootstrap.min.js"></script>
+<script type="text/javascript">
+    function inicio(){
+        if (localStorage.getItem("Actualizacion Cliente") == "true"){
+            swal({
+                    title: "Notificación",
+                    text: "Los detalles de su cuenta han sido modificados por el encargado",
+                    icon: "info",
+                    button: "Entendido",
+                    });
+            localStorage.setItem("Actualizacion Cliente","false")
+        }
+    }
+    function info()
+        {
+            swal({
+                title: "Contratar un nuevo servicio:",
+                text: "Ponte en contacto con el encargado llamando al número 910123123 y este mandará un técnico para instalar el nuevo servicio. Una vez instalado le aparecerá el servicio en la aplicación. Ten en cuenta que esto aumenatará la couta actual",
+                icon: "info",
+                button: "Entendido",
+                });
+        }
+</script>
+</html>

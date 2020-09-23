@@ -1,0 +1,394 @@
+<html>
+    <head>
+        <link rel="icon" type="image/png" href="escudo.png">
+        <title>Añadir Servicio</title>
+        <meta charset="UTF-8">
+        <meta name="viewport" content="width=device-width, initial-scale=1.0">
+        <link rel="stylesheet" href="https://stackpath.bootstrapcdn.com/bootstrap/4.3.1/css/bootstrap.min.css"
+            integrity="sha384-ggOyR0iXCbMQv3Xipma34MD+dH/1fQ784/j6cY/iJTQUOhcWr7x9JvoRxT2MZw1T" crossorigin="anonymous">
+        <script src="https://code.jquery.com/jquery-3.3.1.slim.min.js"
+            integrity="sha384-q8i/X+965DzO0rT7abK41JStQIAqVgRVzpbzo5smXKp4YfRvH+8abtTE1Pi6jizo"
+            crossorigin="anonymous"></script>
+        <script src="https://cdnjs.cloudflare.com/ajax/libs/popper.js/1.14.7/umd/popper.min.js"
+            integrity="sha384-UO2eT0CpHqdSJQ6hJty5KVphtPhzWj9WO1clHTMGa3JDZwrnQq4sF86dIHNDz0W1"
+            crossorigin="anonymous"></script>
+        <script src="https://stackpath.bootstrapcdn.com/bootstrap/4.3.1/js/bootstrap.min.js"
+            integrity="sha384-JjSmVgyd0p3pXB1rRibZUAYoIIy6OrQ6VrjIEaFf/nJGzIxFDsf4x0xIM+B07jRM"
+            crossorigin="anonymous"></script>
+        <meta http-equiv="X-UA-Compatible" content="ie=edge">
+        <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/normalize/8.0.1/normalize.css">
+        <link rel="stylesheet" href="styles.css">
+        <link rel="stylesheet" href="https://use.fontawesome.com/releases/v5.8.0/css/all.css">
+        <script src="https://unpkg.com/sweetalert/dist/sweetalert.min.js"></script>
+        <style>
+            body
+            {
+                background-color: #efe1e6;
+            }
+            .bg-light 
+            {
+                background-color: #99badc !important;
+            }
+            .main 
+            {
+                width: 70%;
+                margin: 0 auto;
+                padding-top: 20px;
+                text-align: center;
+            } 
+            .form-cliente
+            {
+                background-color: #dbe6f1;
+                margin: 0 auto;
+                width: fit-content;
+                padding: 10px;
+                border: 10px inset #8ac8d6;
+                border-radius: 10%;
+                text-align: left;
+            }
+            .p-form
+            {
+                margin: 0;
+                padding: 5px 0;
+            }
+            .SumitBoton
+            {
+                text-align: center;
+                margin-top: 15;
+                background-color: #82b781;
+                border-style: solid;
+                border-radius: 10px;
+                padding: 5px;
+                border-color: black;
+                margin: 20 auto;
+                display: block;
+            }
+            .wrapper>span {
+                width: 100%;
+                position: absolute;
+                top: -20px;
+                left: -25%;
+                font-family: Tahoma;
+                font-size: 12px;
+                color: grey;
+                text-shadow: 1px 1px rgb(50, 50, 50);
+            }
+            .box-4 {
+                width: 60px;
+                height: 20px;
+                background: rgb(200, 200, 200);
+                position: relative;
+                display: inline-block;
+                margin: 0 15px;
+            }
+            .box-4 input {
+                position: inherit;
+                width: 100%;
+                height: 100%;
+                cursor: pointer;
+                opacity: 0;
+                z-index: 999;
+            }
+            .box-4 .toogle {
+                display: block;
+                position: absolute;
+                z-index: 998;
+                width: 30px;
+                height: 100%;
+                background: #3f3f40;
+                top: 0;
+                box-shadow: 0px 0px 3px rgb(0, 0, 0) inset;
+                -webkit-transition: all 0.2s ease;
+                -moz-transition: all 0.2s ease;
+                -ms-transition: all 0.2s ease;
+                -o-transition: all 0.2s ease;
+                transition: all 0.2s ease;
+                text-align: center;
+            }
+            .box-4 .toogle:before {
+                content: "No";
+                color: #fff;
+                text-shadow: 1px 1px #000;
+                font-family: tahoma;
+                font-size: 11px;
+            }
+            .box-4 input:checked~.toogle {
+                margin-left: 30px;
+                animation: button4 1s;
+                -webkit-animation: button4 1s;
+            }
+            .box-4 input:checked+.toogle:before {
+                content: "Sí";
+            }
+        </style>
+    </head>
+
+<body>
+        <nav class="navbar navbar-expand-lg navbar-light bg-light">
+                <a class="navbar-brand">Añadiendo un Servicio al Cliente</a>
+                <button class="navbar-toggler" type="button" data-toggle="collapse" data-target="#navbarSupportedContent"
+                    aria-controls="navbarSupportedContent" aria-expanded="false" aria-label="Toggle navigation">
+                    <span class="navbar-toggler-icon"></span>
+                </button>
+                <div class="collapse navbar-collapse" id="navbarSupportedContent">
+                    <ul class="navbar-nav mr-auto">
+                        <li class="nav-item">
+                            <a class="nav-link" href="HomeEmpleado.html"><i class="fas fa-home"></i> Inicio   </a>
+                        </li>
+                        <li class="nav-item">
+                            <a class="nav-link" href="ServiciosCliente.html"><i class="fas fa-backward"></i> Atrás   </a>
+                        </li>
+                        <li class="nav-item">
+                            <a class="nav-link" href="LoginApp.html"><i class="fas fa-sign-out-alt"></i> Cerrar Sesión</a>
+                        </li>
+                        
+                    </ul>
+                </div>
+            </nav>
+    <div class="main">
+        <div class="form-cliente">
+            <form>
+                    <p>Solo los campos con <strong>*</strong> son <strong>obligatorios </strong></p>
+                    <p class="p-form">Tipo de Servicio <i class="fas fa-user-shield"></i> :</p>
+                        <select id="ServicioCliente">
+
+                            <option>Camara</option>
+                            
+                            <option>Puerta de Seguridad</option>
+                            
+                            <option>Alarma</option>
+
+                            <option>Ascensor</option>
+
+                            <option id="ventana">Ventana</option>
+
+                            <option>Gestor de Temperatura</option>
+
+                            <option>Control de iluminación</option>
+
+                            <option>Sensor</option>
+
+                            <option id="sistelect">Sistema electrónico</option>
+                            
+                        </select>
+                        <select title="Opción disponible al seleccionar Sistema Electrónico" id="SisElect" disabled>
+                            <option>Fax</option>
+                            <option>Ordenador</option>
+                            <option>Teléfono</option>
+                            <option>Impresora</option>
+                            <option>Cafetera</option>
+                            <option>Microondas</option>
+                        </select>
+                        <p></p>
+                        <div class="form-check">
+                            <input title="Opción disponible al seleccionar Ventana"class="form-check-input" type="checkbox" value="check" id="persiana" disabled>
+                            <label for="persiana" title="Opción disponible al seleccionar Ventana"class="form-check-label" for="defaultCheck2">
+                              Persiana
+                            </label>
+                          </div>
+                    <p class="p-form"><strong>* </strong>Lugar de Instalación <i class="fas fa-map-marker-alt"></i> :</p>  
+                    <input class ="form-control"type="text" id="LugarServicio" size="35"  placeholder="Sala/Habitación donde estará el Servicio"
+                    pattern="([A-z]{2,30}).?([0-9]{1,2})?" required>
+                    <p class="p-form">Información adicional sobre el servicio <i class="fas fa-info"></i> :</p>  
+                    <input type="text" id="InfoServicio"class ="form-control" size="35"  placeholder="Informacion sobre Servicio">
+                    <p class="p-form">Precio económico del servicio <i class="fas fa-money-bill"></i> :</p>  
+                    <input title="Valor económico del servicio asignado por la empresa, que se verá reflejado en la cuota del cliente"
+                    type="number"style="background-color:lightgreen;text-align:center" id="CuotaServicio"class ="form-control" value="215" disabled>
+                    <button class="SumitBoton" onclick=validar(); type="submit">Añadir Servicio <i class="fas fa-plus"></i></button>
+            </form>
+        </div>
+    </div>
+    <script type = "text/javascript">
+        $(document).ready(function(){
+            $("#persiana").change(function()
+            {
+                if(this.checked)
+                    document.getElementById("CuotaServicio").value=375;
+                else   
+                    document.getElementById("CuotaServicio").value=250;
+            })
+            $("#SisElect").change(function()
+            {
+                var opcion2 = document.getElementById("SisElect").value;
+
+                if(opcion2=="Ordenador")
+                {
+                    document.getElementById("CuotaServicio").value=230;
+
+                }
+                if(opcion2=="Teléfono")
+                {
+                    document.getElementById("CuotaServicio").value=110;
+
+                }
+                if(opcion2=="Impresora")
+                {
+                    document.getElementById("CuotaServicio").value=115;
+
+                }
+                if(opcion2=="Cafetera")
+                {
+                    document.getElementById("CuotaServicio").value=50;
+
+                }
+                if(opcion2=="Microondas")
+                {
+                    document.getElementById("CuotaServicio").value=75;
+
+                }
+
+            })
+            $("#ServicioCliente").change(function(){
+                var opcion = document.getElementById("ServicioCliente").value;
+                var ventana = document.getElementById("ventana").value;
+                var opcion2 = document.getElementById("SisElect").value;
+                if(ventana==opcion)
+                {
+                    document.getElementById("CuotaServicio").value=250;
+                    document.getElementById("persiana").disabled=false; 
+                }
+                else
+                {
+                    document.getElementById("persiana").disabled=true;
+                    document.getElementById("persiana").checked=false;
+                }
+                if(opcion==document.getElementById("sistelect").value)
+                {
+                    document.getElementById("SisElect").disabled=false;
+                    document.getElementById("CuotaServicio").value=180;
+                }
+                else
+                    document.getElementById("SisElect").disabled=true;
+               if(opcion=="Ascensor")
+                {
+                    document.getElementById("CuotaServicio").value=1200;
+                    document.getElementById("LugarServicio").required=false;
+                    document.getElementById("LugarServicio").disabled=true;
+                    document.getElementById("LugarServicio").value="";
+                    document.getElementById("LugarServicio").title="Deshabilitado para el Servicio Ascensor"
+
+                }
+                else
+                {
+                    document.getElementById("LugarServicio").required=true;
+                    document.getElementById("LugarServicio").disabled=false;
+                    document.getElementById("LugarServicio").title="";
+                }
+                if(opcion=="Camara")
+                {
+                    document.getElementById("CuotaServicio").value=215;
+
+                }
+                if(opcion=="Puerta de Seguridad")
+                {
+                    document.getElementById("CuotaServicio").value=310;
+
+                }
+                if(opcion=="Control de iluminación")
+                {
+                    document.getElementById("CuotaServicio").value=55;
+
+                }
+                if(opcion=="Alarma")
+                {
+                    document.getElementById("CuotaServicio").value=320;
+
+                }
+                if(opcion=="Gestor de Temperatura")
+                {
+                    document.getElementById("CuotaServicio").value=860;
+
+                }
+                if(opcion=="Sensor"){
+                    document.getElementById("CuotaServicio").value=130;
+                }
+                
+            });
+        });
+        function validar() 
+        {
+            var texto= /([A-z]{2,30}).?([0-9]{1,2})?/;
+            var select=document.getElementById("ServicioCliente").value;
+           if(document.getElementById("LugarServicio").value!="")
+                {
+                    var opcion = confirm("¿Está seguro de que quiere añadir este servicio al Cliente"
+                    +" asumiendo que se añadirá un coste adicional a la cuota de este?")
+                    if(opcion)
+                    {
+                        alert('Servicio de: '+select+'-añadido con éxito')
+                        guardarServicio();
+                    }
+                }
+            else if(document.getElementById("ServicioCliente").value=="Ascensor")
+            {
+                var opcion2 = confirm("¿Está seguro de que quiere añadir este servicio al Cliente"
+                    +" asumiendo que se añadirá un coste adicional a la cuota de este?")
+                if(opcion2)
+                {
+                    guardarServicio();
+                    alert('"Servicio de:"'+select+"-añadido con éxito")
+                }
+            }
+        }
+        function guardarServicio()
+        {
+            let servicio =
+            {
+                nombre_servicio:document.getElementById("ServicioCliente").value,
+                lugar_instalación:document.getElementById("LugarServicio").value,  
+            };
+            if(document.getElementById("ServicioCliente").value=="Ventana")
+            {
+                if(document.getElementById("persiana").checked==true)
+                {
+                    servicio.tipo_servicio="Persiana";
+                    servicio.apertura=3;
+                }     
+            }
+            if(document.getElementById("ServicioCliente").value=="Sistema electrónico")
+            {
+                servicio.tipo_servicio=document.getElementById("SisElect").value;
+            }
+            else if(document.getElementById("ServicioCliente").value=="Gestor de Temperatura")
+            {
+                servicio.valor_temperatura=20;
+            }
+            else if(document.getElementById("ServicioCliente").value=="Ascensor")
+            {
+                servicio.averia="false"
+                servicio.planta=0;
+            }
+            if(document.getElementById("InfoServicio").value!="")
+            {
+                servicio.info_adicional=document.getElementById("InfoServicio").value;
+            }
+            else
+            servicio.info_adicional="Sin información adicional"
+            
+
+            let idmayor=0;
+            let idCliente=localStorage.getItem("IdClienteServicios");
+
+            for(var i =0; i < localStorage.length; i++)
+            {
+                if(localStorage.getItem("ServicioCliente"+i+"Cliente"+idCliente))
+                    idmayor=i;
+            }
+            idmayor++;
+            servicio.estado="false";
+            cliente=localStorage.getItem("Cliente"+idCliente);
+                cliente=JSON.parse(cliente);
+            var cuota_antigua=cliente.cuota;
+            var cuota_añadir=parseInt(document.getElementById("CuotaServicio").value);
+            var cuota_total=cuota_antigua + cuota_añadir;
+            cliente.cuota=cuota_total;
+            servicio.precio=cuota_añadir;
+            localStorage.setItem("Actualizacion Cliente", "true");
+            localStorage.setItem("Cliente"+idCliente,JSON.stringify(cliente));
+            localStorage.setItem("ServicioCliente"+idmayor+"Cliente"+idCliente,JSON.stringify(servicio));
+        }
+
+
+    </script>
+</body> 
+</html>

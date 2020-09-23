@@ -1,0 +1,11 @@
+INICIO DE SESION PARA EMPLEADO:
+
+Email: empleado@seguridad.com
+Contraseña: 1234
+
+INICIO DE SESION PARA CLIENTE:
+
+Email: cliente@seguridad.com
+Contraseña: 1234
+
+La pantalla de login es la misma para los dos pero dependiendo los credenciales que introduzcas te llevara a una aplicacion o a otra.

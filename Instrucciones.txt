@@ -1,0 +1,9 @@
+Instrucciones:
+
+La pagina web esta dividida en dos partes:
+ - La parte del cliente es en la que el cliente puede consultar
+   todos sus servicios contratados y solicitar añadir nuevos
+   servicios
+ - La parte del empleado es la que se encarga de dar de alta los
+   servicios que el cliente quiere contratar y de hacer las 
+   modificaciones necesarias.

@@ -1,0 +1,1168 @@
+<html>
+
+<head>
+    <link rel="icon" type="image/png" href="escudo.png">
+    <title>Servicios</title>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <link rel="stylesheet" href="https://stackpath.bootstrapcdn.com/bootstrap/4.3.1/css/bootstrap.min.css"
+        integrity="sha384-ggOyR0iXCbMQv3Xipma34MD+dH/1fQ784/j6cY/iJTQUOhcWr7x9JvoRxT2MZw1T" crossorigin="anonymous">
+    <script src="https://code.jquery.com/jquery-3.3.1.slim.min.js"
+        integrity="sha384-q8i/X+965DzO0rT7abK41JStQIAqVgRVzpbzo5smXKp4YfRvH+8abtTE1Pi6jizo"
+        crossorigin="anonymous"></script>
+    <link href="https://gitcdn.github.io/bootstrap-toggle/2.2.2/css/bootstrap-toggle.min.css" rel="stylesheet">
+    <script src="https://gitcdn.github.io/bootstrap-toggle/2.2.2/js/bootstrap-toggle.min.js"></script>
+    <script src="https://unpkg.com/sweetalert/dist/sweetalert.min.js"></script>
+    <script src="https://cdnjs.cloudflare.com/ajax/libs/popper.js/1.14.7/umd/popper.min.js"
+        integrity="sha384-UO2eT0CpHqdSJQ6hJty5KVphtPhzWj9WO1clHTMGa3JDZwrnQq4sF86dIHNDz0W1"
+        crossorigin="anonymous"></script>
+    <script src="https://stackpath.bootstrapcdn.com/bootstrap/4.3.1/js/bootstrap.min.js"
+        integrity="sha384-JjSmVgyd0p3pXB1rRibZUAYoIIy6OrQ6VrjIEaFf/nJGzIxFDsf4x0xIM+B07jRM"
+        crossorigin="anonymous"></script>
+    <meta http-equiv="X-UA-Compatible" content="ie=edge">
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/normalize/8.0.1/normalize.css">    <link rel="stylesheet" href="https://use.fontawesome.com/releases/v5.8.0/css/all.css">
+    <link rel="stylesheet" href="https://fonts.googleapis.com/icon?family=Material+Icons">
+    <style>
+        body {
+            background-color: #efe1e6;
+        }
+
+        .bg-light {
+            background-color: #99badc !important;
+        }
+        .btn
+        {
+            margin:10px;
+        }
+        .card {
+            position: relative;
+            display: -ms-flexbox;
+            display: flex;
+            -ms-flex-direction: column;
+            flex-direction: column;
+            min-width: 0;
+            max-width: 70%;
+            word-wrap: break-word;
+            background-color: #fff;
+            background-clip: border-box;
+            border: 3px solid;
+            border-radius: 20px;
+            margin: 0 auto;
+            margin-bottom: 40px;
+            border-radius: 75px 75px 75px 75px;
+            -moz-border-radius: 75px 75px 75px 75px;
+            -webkit-border-radius: 75px 75px 75px 75px;
+            border: 4px ridge #adadad;
+        }
+
+        .card-camera {
+           
+            background-color: #dbd6cc
+        }
+
+        .card-alarm {
+
+            background-color: #55e0f7
+        }
+        .card-puerta {
+
+            background-color: #7aace0
+        }
+        .card-ventana {
+
+            background-color: #a5c1cc;
+        }
+        .card-electronico {
+
+            background-color: #e69e73;
+            
+        }
+        .card-luz{
+        background-color: #ebfd56;
+        }
+        .card-sensor{
+        background-color: #FF9AEE;
+        }
+        .card-temperatura
+        {
+            background-color: #ffd0b3;
+
+        }
+        .card-ascensor {
+            background-color: #88ffad;
+        }
+        .card-ascensor-averiado {
+            background-color: #bcf9cf;
+            border: 5px solid #e4ff00;
+        }
+
+        .main {
+            width: 60%;
+            margin: 0 auto;
+            padding-top: 20px;
+            text-align: center;
+        }
+
+        .icono-card {
+            font-size: 50px;
+            padding: 10px;
+        }
+        .imagen-card {
+            width: 25%;
+            height: 25%;
+            margin: 0 auto;
+            margin-top: 10px;
+        }
+        .imagen-card-alarm {
+            width: 10%;
+            height: 10%;
+            margin: 0 auto;
+            margin-top: 10px;
+        }
+
+        .switch {
+            position: relative;
+            display: block;
+            vertical-align: top;
+            width: 100px;
+            height: 30px;
+            padding: 3px;
+            margin: 0 10px 10px 0;
+            background: linear-gradient(to bottom, #eeeeee, #FFFFFF 25px);
+            background-image: -webkit-linear-gradient(top, #eeeeee, #FFFFFF 25px);
+            border-radius: 18px;
+            box-shadow: inset 0 -1px white, inset 0 1px 1px rgba(0, 0, 0, 0.05);
+            cursor: pointer;
+            box-sizing: content-box;
+        }
+
+        .switch-input {
+            position: absolute;
+            top: 0;
+            left: 0;
+            opacity: 0;
+            box-sizing: content-box;
+        }
+
+        .switch-label {
+            position: relative;
+            display: block;
+            height: inherit;
+            font-size: 10px;
+            text-transform: uppercase;
+            background: #eceeef;
+            border-radius: inherit;
+            box-shadow: inset 0 1px 2px rgba(0, 0, 0, 0.12), inset 0 0 2px rgba(0, 0, 0, 0.15);
+            box-sizing: content-box;
+        }
+
+        .switch-label:before,
+        .switch-label:after {
+            position: absolute;
+            top: 50%;
+            margin-top: -.5em;
+            line-height: 1;
+            -webkit-transition: inherit;
+            -moz-transition: inherit;
+            -o-transition: inherit;
+            transition: inherit;
+            box-sizing: content-box;
+        }
+
+        .switch-label:before {
+            content: attr(data-off);
+            right: 11px;
+            color: #aaaaaa;
+            text-shadow: 0 1px rgba(255, 255, 255, 0.5);
+        }
+
+        .switch-label:after {
+            content: attr(data-on);
+            left: 11px;
+            color: #FFFFFF;
+            text-shadow: 0 1px rgba(0, 0, 0, 0.2);
+            opacity: 0;
+        }
+
+        .switch-input:checked~.switch-label {
+            background: #E1B42B;
+            box-shadow: inset 0 1px 2px rgba(0, 0, 0, 0.15), inset 0 0 3px rgba(0, 0, 0, 0.2);
+        }
+
+        .switch-input:checked~.switch-label:before {
+            opacity: 0;
+        }
+
+        .switch-input:checked~.switch-label:after {
+            opacity: 1;
+        }
+
+        .switch-handle {
+            position: absolute;
+            top: 4px;
+            left: 4px;
+            width: 28px;
+            height: 28px;
+            background: linear-gradient(to bottom, #FFFFFF 40%, #f0f0f0);
+            background-image: -webkit-linear-gradient(top, #FFFFFF 40%, #f0f0f0);
+            border-radius: 100%;
+            box-shadow: 1px 1px 5px rgba(0, 0, 0, 0.2);
+        }
+
+        .switch-handle:before {
+            content: "";
+            position: absolute;
+            top: 50%;
+            left: 50%;
+            margin: -6px 0 0 -6px;
+            width: 12px;
+            height: 12px;
+            background: linear-gradient(to bottom, #eeeeee, #FFFFFF);
+            background-image: -webkit-linear-gradient(top, #eeeeee, #FFFFFF);
+            border-radius: 6px;
+            box-shadow: inset 0 1px rgba(0, 0, 0, 0.02);
+        }
+
+        .switch-input:checked~.switch-handle {
+            left: 74px;
+            box-shadow: -1px 1px 5px rgba(0, 0, 0, 0.2);
+        }
+
+        /* Transition
+            ========================== */
+        .switch-label,
+        .switch-handle {
+            transition: All 0.3s ease;
+            -webkit-transition: All 0.3s ease;
+            -moz-transition: All 0.3s ease;
+            -o-transition: All 0.3s ease;
+        }
+
+        .switch-yes-no {
+            padding: 0;
+            margin: 15px 0 0;
+            background: #FFF;
+            border-radius: 0;
+            background-image: none;
+        }
+
+        .switch-yes-no .switch-label {
+            box-shadow: none;
+            background: none;
+        }
+
+        .switch-yes-no .switch-label:after,
+        .switch-yes-no .switch-label:before {
+            width: 100%;
+            height: 70%;
+            color: black;
+            font-weight: 10px;
+            font-size: 12px;
+            top: 5px;
+            left: 0;
+            text-align: center;
+            padding-top: 10%;
+            box-shadow: inset 0 1px 4px rgba(0, 0, 0, 0.2), inset 0 0 3px rgba(0, 0, 0, 0.1);
+        }
+
+        .switch-yes-no .switch-label:after {
+            color: #FFFFFF;
+            background: #32CD32;
+            backface-visibility: hidden;
+            transform: rotateY(180deg);
+        }
+
+        .switch-yes-no .switch-label:before {
+            background: #eceeef;
+            backface-visibility: hidden;
+        }
+
+        .switch-yes-no .switch-handle {
+            display: none;
+        }
+
+        .switch-yes-no .switch-input:checked~.switch-label {
+            background: #FFF;
+            border-color: #0088cc;
+        }
+
+        .switch-yes-no .switch-input:checked~.switch-label:before {
+            transform: rotateY(180deg)
+        }
+
+        .switch-yes-no .switch-input:checked~.switch-label:after {
+            transform: rotateY(0)
+        }
+        .custom-range 
+        {
+        width: 90%;
+        height: calc(1rem + .4rem);
+        padding: 0;
+        background-color: transparent;
+        -webkit-appearance: none;
+        -moz-appearance: none;
+        appearance: none;
+        }
+        .etiqueta
+        {
+            border-radius: 87px 87px 87px 87px;
+            -moz-border-radius: 87px 87px 87px 87px;
+            -webkit-border-radius: 87px 87px 87px 87px;
+            border: 2px inset #c7b3c7;
+            padding:3px;
+        }
+        .text-center {
+                text-align: center!important;
+                margin:5 auto;
+            }
+           
+            .accordion-container {
+            width: 100%;
+            margin: 0 0 20px;
+            clear:both;
+            }
+
+            .accordion-titulo {
+            position: relative;
+            display: block;
+            padding: 20px;
+            font-size: 24px;
+            font-weight: 300;
+            background: #2c3e50;
+            color: #fff;
+            text-decoration: none;
+            font-weight: 400;
+            }
+            .accordion-titulo.open {
+            background: #16a085;
+            color: #fff;
+            }
+
+            .accordion-titulo span.toggle-icon:before {
+            content:"+";
+            }
+
+            .accordion-titulo.open span.toggle-icon:before {
+            content:"-";
+            }
+            .accordion-titulo span.toggle-icon {
+            position: absolute;
+            top: 5px;
+            right: 20px;
+            font-size: 38px;
+            font-weight:bold;
+            }
+            .accordion-titulo i {
+            position: absolute;
+            top: 25px;
+            left: 20px;
+            font-size: 25px;
+            font-weight:bold;
+            }
+
+            .accordion-content {
+            display: none;
+            padding: 20px;
+            overflow: auto;
+            border: 5px solid;
+            border-color: inherit;
+            border-top: none;
+            border-bottom-right-radius: 10px;
+            border-bottom-left-radius: 10px;
+            }
+            .notif-header{
+                display: flex;
+                align-items: center;
+                justify-content: space-between;
+                background-color: #a9a9a9;
+            }
+            .notif-header div{
+                padding: 5px;
+            }
+            .notif-container
+            {
+                
+                border-left: 2px solid #a9a9a9;
+                border-right: 2px solid #a9a9a9;
+                border-top: 2px solid #a9a9a9;
+                display: flex;
+                align-items: center;
+                justify-content: space-between;
+            }
+            .not-container-info
+            {
+                margin: 0 10;
+            }
+            .inputDiv {
+             width: auto;
+    margin: 10px auto;
+    position: relative
+}
+
+input[type='range'] {
+    display: block;
+    width: 250px;
+    margin: 0 auto;
+}
+
+input[type='range']:focus {
+  outline: none;
+}
+
+input[type='range'],
+input[type='range']::-webkit-slider-runnable-track,
+input[type='range']::-webkit-slider-thumb {
+  -webkit-appearance: none;
+}
+
+input[type=range]::-webkit-slider-thumb {
+  background-color: #777;
+  width: 20px;
+  height: 20px;
+  border: 3px solid #333;
+  border-radius: 50%;
+  margin-top: -9px;
+}
+
+input[type=range]::-moz-range-thumb {
+  background-color: #777;
+  width: 15px;
+  height: 15px;
+  border: 3px solid #333;
+  border-radius: 50%;
+}
+
+input[type=range]::-ms-thumb {
+  background-color: #777;
+  width: 20px;
+  height: 20px;
+  border: 3px solid #333;
+  border-radius: 50%;
+}
+
+input[type=range]::-webkit-slider-runnable-track {
+  background-color: #777;
+  height: 3px;
+}
+
+input[type=range]:focus::-webkit-slider-runnable-track {
+  outline: none;
+}
+
+input[type=range]::-moz-range-track {
+  background-color: #777;
+  height: 3px;
+}
+
+input[type=range]::-ms-track {
+  background-color: #777;
+  height: 3px;
+}
+
+input[type=range]::-ms-fill-lower {
+  background-color: HotPink
+}
+
+input[type=range]::-ms-fill-upper {
+  background-color: black;
+} 
+            
+    </style>
+</head>
+
+<body onload="inicio();">
+    <nav class="navbar navbar-expand-lg navbar-light bg-light">
+        <a class="navbar-brand">Servicios contratados por un Cliente</a>
+        <button class="navbar-toggler" type="button" data-toggle="collapse" data-target="#navbarSupportedContent"
+            aria-controls="navbarSupportedContent" aria-expanded="false" aria-label="Toggle navigation">
+            <span class="navbar-toggler-icon"></span>
+        </button>
+        <div class="collapse navbar-collapse" id="navbarSupportedContent">
+            <ul class="navbar-nav mr-auto">
+                <li class="nav-item">
+                    <a class="nav-link" href="HomeEmpleado.html"><i class="fas fa-home"></i> Inicio </a>
+                </li>
+                <li class="nav-item ">
+                    <a class="nav-link" href="AniadirServicioCliente.html"><i style="color: #5d9653" class="fas fa-plus"></i> Añadir Servicio </a>
+                </li>
+                <li class="nav-item">
+                    <a class="nav-link" href="LoginApp.html"><i class="fas fa-sign-out-alt"></i> Cerrar Sesión</a>
+                </li>
+            </ul>
+        </div>
+    </nav>
+    <div class="main">
+            <div class="accordion-container">
+                    <a href="#" style ="background: #908b85;color: #000;"class="accordion-titulo"><i class="fas fa-video"></i>
+                         Servicios Videovigilancia<span class="toggle-icon"></span></a>
+                   <div class="accordion-content"id="containerVideo">
+                
+                    </div>
+                    
+            </div>
+
+            <div class="accordion-container">
+                    <a href="#" style ="background: #2098ff;color: #000;"class="accordion-titulo"><i class="fas fa-lock"></i> 
+                        Servicios de Seguridad<span class="toggle-icon"></span></a>
+                    <div  class="accordion-content"id="containerSeguridad">
+                                         
+                    </div>  
+            </div>
+
+            <div class="accordion-container">
+                    <a href="#" style ="background: #bf7332;color: #000;"class="accordion-titulo">
+                            <img style="float:left;width: 35px;" src="https://img.icons8.com/metro/52/000000/home-automation.png">
+                        Servicios de gestión domótica<span class="toggle-icon"></span></a>
+                    <div  class="accordion-content"id="containerGestion">
+                                          
+                    </div>
+            </div>
+            <div class="accordion-container">
+                    <a href="#" style ="background: #4df35a;color: #000;"class="accordion-titulo">
+                        <i class="fas fa-arrows-alt"></i> 
+                        Servicios de movilidad<span class="toggle-icon"></span></a>
+                    <div  class="accordion-content"id="containerMovilidad">
+                        
+                    </div>                    
+            </div>
+            <div class="accordion-container">
+                    <a href="#" style ="background: #f11d6b;color: #000;"class="accordion-titulo">
+                            <img style="float:left;width: 40px;" class=""src="https://img.icons8.com/metro/52/000000/electrical-sensor.png">
+                        Servicios de Sensores<span class="toggle-icon"></span></a>
+                    <div  class="accordion-content"id="containerSensor">
+                        
+                    </div>                    
+            </div> 
+            <!--<div class="card card-luz" id="card_luz">
+                    <img class="imagen-card"src="https://img.icons8.com/metro/52/000000/light-automation.png">                <div class="card-body" id="card_ascensor_body1">
+                    <h5 class="card-title">Ascensor 1</h5>
+                    <h6 class="card-subtitle mb-2 text-muted"></h6>
+                    <p class="card-text">Sin información adicional</p>
+                    <div style="text-align: -webkit-center;">
+                        <label class="switch switch-yes-no">
+                            <input id="1" name="estado1" class="switch-input" type="checkbox">
+                            <span class="switch-label" data-on="ENCENDIDA" data-off="APAGADA">
+                            </span><span class="switch-handle"></span>
+                        </label></div><button style="margin-top: 10px" name="ascensor1" id="1" onclick="getConfirmationAscensor();" type="button" class="btn btn-danger">Eliminar <i class="fas fa-trash-alt"></i>
+                        </button>
+                    </div>
+            </div>-->   
+        </div>
+
+</body>
+<script src="js/jquery.js"></script>
+<script src="js/bootstrap.min.js"></script>
+<script type="text/javascript">
+
+ $(function(){
+        $(".accordion-titulo").click(function(e)
+        {    
+                e.preventDefault();
+            
+                var contenido=$(this).next(".accordion-content");
+                if(contenido.css("display")=="none"){ //open		
+                contenido.slideDown(250);			
+                $(this).addClass("open");
+                }
+                else{ //close		
+                contenido.slideUp(250);
+                $(this).removeClass("open");	
+                }
+
+            });
+        });
+    function getConfirmationCamara() {
+        swal({
+            title: "¿Estás segura/o de eliminar una Cámara de forma permanente?",
+            text: "Una vez borrada la Cámara perderás este servicio.",
+            icon: "warning",
+            buttons: true,
+            dangerMode: true,
+        })
+            .then((willDelete) => {
+                localStorage.setItem("Actualizacion Cliente", "true");
+                if (willDelete) {
+                    swal("La Cámara ha sido borrado con éxito.", {
+                        icon: "success",
+                    });
+                }
+            });
+    }
+    function getConfirmationAlarma() {
+        swal({
+            title: "¿Estás segura/o de eliminar una Alarma de forma permanente?",
+            text: "Una vez borrada la Alarma perderás este servicio.",
+            icon: "warning",
+            buttons: true,
+            dangerMode: true,
+        })
+            .then((willDelete) => {
+                if (willDelete) {
+                    localStorage.setItem("Actualizacion Cliente", "true");
+                    swal("La Alarma ha sido borrado con éxito.", {
+                        icon: "success",
+                    });
+                }
+            });
+    }
+    function getConfirmationventana() {
+        swal({
+            title: "¿Estás segura/o de eliminar una Ventana de forma permanente?",
+            text: "Una vez borrada la Ventana perderás este servicio.",
+            icon: "warning",
+            buttons: true,
+            dangerMode: true,
+        })
+            .then((willDelete) => {
+                localStorage.setItem("Actualizacion Cliente", "true");
+                if (willDelete) {
+                    swal("La Ventana ha sido borrado con éxito.", {
+                        icon: "success",
+                    });
+                }
+            });
+    }
+    function getConfirmationpuerta() {
+        swal({
+            title: "¿Estás segura/o de eliminar una Puerta de forma permanente?",
+            text: "Una vez borrada la Puerta perderás este servicio.",
+            icon: "warning",
+            buttons: true,
+            dangerMode: true,
+        })
+            .then((willDelete) => {
+                localStorage.setItem("Actualizacion Cliente", "true");
+                if (willDelete) {
+                    swal("La Puerta ha sido borrado con éxito.", {
+                        icon: "success",
+                    });
+                }
+            });
+    }
+    function getConfirmationElectrico() {
+        swal({
+            title: "¿Estás segura/o de eliminar un Servicio Electrónico de forma permanente?",
+            text: "Una vez borrado el Servicio Electrónico perderás este servicio.",
+            icon: "warning",
+            buttons: true,
+            dangerMode: true,
+        })
+            .then((willDelete) => {
+                localStorage.setItem("Actualizacion Cliente", "true");
+                if (willDelete) {
+                    swal("El Servicio Electrónico ha sido borrado con éxito.", {
+                        icon: "success",
+                    });
+                }
+            });
+    }
+    function getConfirmationAscensor() {
+        swal({
+            title: "¿Estás segura/o de eliminar un Ascensor de forma permanente?",
+            text: "Una vez borrado el Ascensor perderás este servicio.",
+            icon: "warning",
+            buttons: true,
+            dangerMode: true,
+        })
+            .then((willDelete) => {
+                if (willDelete) {
+                    localStorage.setItem("Actualizacion Cliente", "true");
+                    swal("El Ascensor ha sido borrado con éxito.", {
+                        icon: "success",
+                    });
+                }
+            });
+    }
+    function getConfirmationTemperatura() {
+        swal({
+            title: "¿Estás segura/o de eliminar un Gestor de Temperatura de forma permanente?",
+            text: "Una vez borrado el Gestor de Temperatura perderás este servicio.",
+            icon: "warning",
+            buttons: true,
+            dangerMode: true,
+        })
+            .then((willDelete) => {
+                if (willDelete) {
+                    localStorage.setItem("Actualizacion Cliente", "true");
+                    swal("El Gestor de Temperatura ha sido borrado con éxito.", {
+                        icon: "success",
+                    });
+                }
+            });
+    }
+
+    function getConfirmationSensor() {
+        swal({
+            title: "¿Estás segura/o de eliminar el Sensor de forma permanente?",
+            text: "Una vez borrado el Sensor perderás este servicio.",
+            icon: "warning",
+            buttons: true,
+            dangerMode: true,
+        })
+            .then((willDelete) => {
+                if (willDelete) {
+                    localStorage.setItem("Actualizacion Cliente", "true");
+                    swal("El Sensor ha sido borrado con éxito.", {
+                        icon: "success",
+                    });
+                }
+            });
+    }
+
+    function inicio()
+        {
+            var numcamaras=0,numascensores=0,numpuertas=0,numalarmas=0,numventanas=0,numgestores=0,numsistemas=0,numluces=0,numsensores=0;
+            var idCliente=localStorage.getItem("IdClienteServicios");
+            var servicio;
+            for(var i =0; i < localStorage.length; i++)
+            {
+                if(localStorage.getItem("ServicioCliente"+i+"Cliente"+idCliente))
+                {
+                    servicio=localStorage.getItem("ServicioCliente"+i+"Cliente"+idCliente);
+                    servicio=JSON.parse(servicio);
+                    var acordeon_video,acordeon_seguridad,acordeon_gestion,acordeon_movilidad,acordeon_sensor;
+                    acordeon_video=document.getElementById("containerVideo");
+                    acordeon_seguridad=document.getElementById("containerSeguridad");
+                    acordeon_gestion=document.getElementById("containerGestion");
+                    acordeon_movilidad=document.getElementById("containerMovilidad");
+                    acordeon_sensor=document.getElementById("containerSensor");
+                    
+                    var card_servicio = document.createElement("div");
+
+                    if(servicio.nombre_servicio=="Camara")
+                    {
+                        numcamaras++;
+                        card_servicio.className="card card-camera";
+                        card_servicio.setAttribute("id","card_camera"+i);
+                        card_servicio.innerHTML='<img class="imagen-card" src="https://img.icons8.com/metro/52/000000/bullet-camera.png">'
+                        acordeon_video.appendChild(card_servicio);
+                        var card_servicio_body=document.createElement("div");
+                        card_servicio_body.className="card-body";
+                        card_servicio_body.setAttribute("id","card_camera_body"+i);
+                        document.getElementById("card_camera"+i).appendChild(card_servicio_body);
+                        card_servicio_body.innerHTML = '<h5 class="card-title">Cámara '+ numcamaras +'</h5>'
+                                            +'<h6 class="card-subtitle mb-2 text-muted">'+servicio.lugar_instalación+'</h6>'
+                                            +'<p class="card-text">'+servicio.info_adicional+'</p>'
+                                            +'<div style="text-align: -webkit-center;">'
+                                                +'<label class="switch switch-yes-no">'
+                                                    +'<input id="'+i+'"name="estado'+i+'" class="switch-input" type="checkbox" />'
+                                                    +'<span  class="switch-label" data-on="ENCENDIDA" data-off="APAGADA"></span>'
+                                                    +'<span class="switch-handle"></span>'
+                                                +'</label>'
+                                            +'</div>'
+                                            +'<button style="margin-top: 10px" name="camara'+numcamaras+'"id="'+i+'" onclick="getConfirmationCamara();" type="button"'
+                                            +'class="btn btn-danger">Eliminar <i class="fas fa-trash-alt"></i></button>';
+
+                    }
+                    if(servicio.nombre_servicio=="Ascensor")
+                    {
+                        if(servicio.averia=="false")
+                        {
+                        numascensores++;
+                        card_servicio.className="card card-ascensor";
+                        card_servicio.setAttribute("id","card_ascensor"+i);
+                        card_servicio.innerHTML='<img class="imagen-card" src="https://img.icons8.com/ios/50/000000/elevator.png">'
+                        acordeon_movilidad.appendChild(card_servicio);
+                        var card_servicio_body=document.createElement("div");
+                        card_servicio_body.className="card-body";
+                        card_servicio_body.setAttribute("id","card_ascensor_body"+i);
+                        document.getElementById("card_ascensor"+i).appendChild(card_servicio_body);
+                        card_servicio_body.innerHTML = '<h5 class="card-title">Ascensor '+numascensores +'</h5>'
+                        +'<h6 class="card-subtitle mb-2 text-muted">'+servicio.lugar_instalación+'</h6>'
+                                            +'<p class="card-text">'+servicio.info_adicional+'</p>'
+                                            +'<div style="text-align: -webkit-center;">'
+                                                +'<label class="switch switch-yes-no">'
+                                                    +'<input id="'+i+'"name="estado'+i+'" class="switch-input" type="checkbox" />'
+                                                    +'<span class="switch-label" data-on="SERVICIO" data-off="FUERA SERVICIO"></span>'
+                                                    +'<span class="switch-handle"></span>'
+                                                +'</label>'
+                                            +'</div>'
+                                            +'<button style="margin-top: 10px" name="ascensor'+numascensores+'"id="'+i+'" onclick="getConfirmationAscensor();" type="button"'
+                                            +'class="btn btn-danger">Eliminar <i class="fas fa-trash-alt"></i></button>';
+
+                        }
+                        else
+                        {
+                        numascensores++;
+                        card_servicio.className="card card-ascensor-averiado";
+                        card_servicio.setAttribute("id","card_ascensor"+i);
+                        card_servicio.innerHTML='<img class="imagen-card" src="https://img.icons8.com/ios/50/000000/elevator.png">'
+                        +'<br/><p><i style="font-size:55px;" class="fas fa-wrench"> </i> <i style="font-size:55px;" class="fas fa-toolbox"> </i> <i style="font-size:55px;transform: rotate(265deg)" class="fas fa-screwdriver"></i></p>';
+                        acordeon_movilidad.appendChild(card_servicio);
+                        var card_servicio_body=document.createElement("div");
+                        card_servicio_body.className="card-body";
+                        card_servicio_body.setAttribute("id","card_ascensor_body"+i);
+                        document.getElementById("card_ascensor"+i).appendChild(card_servicio_body);
+                        card_servicio_body.innerHTML = '<h5 class="card-title">Ascensor '+numascensores +'</h5>'
+                        +'<h6 class="card-subtitle mb-2 text-muted">'+servicio.lugar_instalación+'</h6>'
+                                            +'<p class="card-text">'+servicio.info_adicional+'</p>'
+                                            +'<div style="text-align: -webkit-center;">'
+                                                +'<label class="switch switch-yes-no">'
+                                                    +'<input id="'+i+'"name="estado'+i+'" class="switch-input" type="checkbox" disabled />'
+                                                    +'<span class="switch-label"style="background-color:#b7b7b7" data-on="SERVICIO" data-off="FUERA SERVICIO"></span>'
+                                                    +'<span class="switch-handle"></span>'
+                                                +'</label>'
+                                            +'</div>'
+                                            +'<br/><button name="tecnico_ascensor_'+numascensores+'"id="'+numascensores+'" type="button" class="btn btn-warning"><i class="fas fa-tools"></i> Llamar a un técnico <i class="fas fa-phone"></i></button>'
+                                            +'<br/><br/><button style="margin-top: 10px" name="ascensor'+numascensores+'"id="'+i+'" onclick="getConfirmationAscensor();" type="button"'
+                                            +'class="btn btn-danger">Eliminar <i class="fas fa-trash-alt"></i></button>';
+
+                        }
+                    }
+                    if(servicio.nombre_servicio=="Puerta de Seguridad")
+                    {
+                        numpuertas++;
+                        card_servicio.className="card card-puerta";
+                        card_servicio.setAttribute("id","card_puerta"+i);
+                        card_servicio.innerHTML='<i class="fas fa-door-open icono-card"></i>'
+                        acordeon_seguridad.appendChild(card_servicio);
+                        var card_servicio_body=document.createElement("div");
+                        card_servicio_body.className="card-body";
+                        card_servicio_body.setAttribute("id","card_puerta_body"+i);
+                        document.getElementById("card_puerta"+i).appendChild(card_servicio_body);
+                        card_servicio_body.innerHTML = '<h5 class="card-title">Puerta '+numpuertas+'</h5>'
+                        +'<h6 class="card-subtitle mb-2 text-muted">'+servicio.lugar_instalación+'</h6>'
+                                            +'<p class="card-text">'+servicio.info_adicional+'</p>'
+                                            +'<div style="text-align: -webkit-center;">'
+                                                +'<label class="switch switch-yes-no">'
+                                                    +'<input id="'+i+'"name="estado'+i+'" class="switch-input" type="checkbox" />'
+                                                    +'<span class="switch-label" data-on="ABIERTA" data-off="CERRADA"></span>'
+                                                    +'<span class="switch-handle"></span>'
+                                                +'</label>'
+                                            +'</div>'
+                                            +'<button style="margin-top: 10px" name="puerta'+numpuertas+'"id="'+i+'" onclick="getConfirmationpuerta();" type="button"'
+                                            +'class="btn btn-danger">Eliminar <i class="fas fa-trash-alt"></i></button>';
+                    }
+                    if(servicio.nombre_servicio=="Alarma")
+                    {
+                        numalarmas++;
+                        card_servicio.className="card card-alarm";
+                        card_servicio.setAttribute("id","card_alarma"+i);
+                        card_servicio.innerHTML='<img class="imagen-card"src="https://img.icons8.com/ios/100/000000/secured-by-alarm-system.png">'
+                        acordeon_seguridad.appendChild(card_servicio);
+                        var card_servicio_body=document.createElement("div");
+                        card_servicio_body.className="card-body";
+                        card_servicio_body.setAttribute("id","card_alarma_body"+i);
+                        document.getElementById("card_alarma"+i).appendChild(card_servicio_body);
+                        card_servicio_body.innerHTML = '<h5 class="card-title">Alarma '+numalarmas+'</h5>'
+                        +'<h6 class="card-subtitle mb-2 text-muted">'+servicio.lugar_instalación+'</h6>'
+                                            +'<p class="card-text">'+servicio.info_adicional+'</p>'
+                                            +'<div style="text-align: -webkit-center;">'
+                                                +'<label class="switch switch-yes-no">'
+                                                    +'<input id="'+i+'" name="estado'+i+'" class="switch-input" type="checkbox" />'
+                                                    +'<span class="switch-label" data-on="ENCENDIDA" data-off="APAGADA"></span>'
+                                                    +'<span class="switch-handle"></span>'
+                                                +'</label>'
+                                            +'</div>'
+                                            +'<button style="margin-top: 10px" name="alarma'+numalarmas+'"id="'+i+'" onclick="getConfirmationAlarma();" type="button"'
+                                            +'class="btn btn-danger">Eliminar <i class="fas fa-trash-alt"></i></button>';
+                    }
+                    if(servicio.nombre_servicio=="Ventana")
+                    {
+                        numventanas++;
+                        card_servicio.className="card card-ventana";
+                        card_servicio.setAttribute("id","card_ventana"+i);
+                        card_servicio.innerHTML='<img src="https://img.icons8.com/ios-glyphs/96/000000/frozen-window.png" class="imagen-card" alt="Ventana" width="25px" width="25px"> '
+                        acordeon_seguridad.appendChild(card_servicio);
+                        var card_servicio_body=document.createElement("div");
+                        card_servicio_body.className="card-body";
+                        card_servicio_body.setAttribute("id","card_ventana_body"+i);
+                        document.getElementById("card_ventana"+i).appendChild(card_servicio_body);                       
+                       if(servicio.tipo_servicio=="Persiana")  
+                        {
+                            var car_body_persiana=document.createElement("div");
+                            car_body_persiana.setAttribute("id",numventanas)
+                            document.getElementById("card_ventana_body"+i).appendChild(car_body_persiana);
+                            car_body_persiananerHTML= card_servicio_body.innerHTML = '<h5 class="card-title">Ventana '+numventanas+'</h5>'
+                        +'<h6 class="card-subtitle mb-2 text-muted">'+servicio.lugar_instalación+'</h6>'
+                                            +'<p class="card-text">'+servicio.info_adicional+'</p>'
+                                            +'<div style="text-align: -webkit-center;">'
+                                                +'<label class="switch switch-yes-no">'
+                                                    +'<input id="'+i+'"name="estado'+i+'" class="switch-input" type="checkbox" />'
+                                                    +'<span class="switch-label" data-on="ABIERTA" data-off="CERRADA"></span>'
+                                                    +'<span class="switch-handle"></span>'
+                                                +'</label>'
+                                            +'</div><br/>'
+                                            +'<p>Apertura de la persiana <br/><img src="https://img.icons8.com/dotty/80/000000/general-blind.png">'
+                                        +'<label style="display: block"for="ventana'+numventanas+'"></label>'
+                                        +'<div class="inputDiv">'
+                                            +'<label style="position:inherit;right: 70px;">Bajada</label>'
+                                            +'<label style="position:inherit;left: 70px;">Subida</label>'
+                                            +'<div id="etiqueta"></div>'
+                                                +'<input id="persiana_input'+i+'" type="range" value="'+servicio.apertura+'" min="0" max="6">'
+                                            +'</div>'
+                                                +'<br/><button style="margin-top: 10px" name="ventana'+numventanas+'"id="'+i+'" onclick="getConfirmationventana();" type="button"'
+                                           +'class="btn btn-danger">Eliminar <i class="fas fa-trash-alt"></i></button>';
+                        }
+                        else{
+                            var car_body_persiana=document.createElement("div");
+                            car_body_persiana.setAttribute("id",numventanas)
+                            document.getElementById("card_ventana_body"+i).appendChild(car_body_persiana);
+                            car_body_persiananerHTML= card_servicio_body.innerHTML = '<h5 class="card-title">Ventana '+numventanas+'</h5>'
+                        +'<h6 class="card-subtitle mb-2 text-muted">'+servicio.lugar_instalación+'</h6>'
+                                            +'<p class="card-text">'+servicio.info_adicional+'</p>'
+                                            +'<div style="text-align: -webkit-center;">'
+                                                +'<label class="switch switch-yes-no">'
+                                                    +'<input id="'+i+'"name="estado'+i+'" class="switch-input" type="checkbox" />'
+                                                    +'<span class="switch-label" data-on="ABIERTA" data-off="CERRADA"></span>'
+                                                    +'<span class="switch-handle"></span>'
+                                                +'</label>'
+                                            +'</div>'
+                                                +'<button style="margin-top: 10px" name="ventana'+numventanas+'"id="'+i+'" onclick="getConfirmationventana();" type="button"'
+                                           +'class="btn btn-danger">Eliminar <i class="fas fa-trash-alt"></i></button>';
+                        
+
+                        }            
+                    }
+                    if(servicio.nombre_servicio=="Sistema electrónico")
+                    {
+                        numsistemas++;
+                        card_servicio.className="card card-electronico";
+                        card_servicio.setAttribute("id","card_sistema"+i);
+                        card_servicio.innerHTML='<i class="fas fa-laptop-code icono-card"></i>'
+                        acordeon_gestion.appendChild(card_servicio);
+                        var card_servicio_body=document.createElement("div");
+                        card_servicio_body.className="card-body";
+                        card_servicio_body.setAttribute("id","card_sistema_body"+i);
+                        document.getElementById("card_sistema"+i).appendChild(card_servicio_body);
+                        card_servicio_body.innerHTML = '<h5 class="card-title">Sistema electrónico '+numsistemas+'</h5>'
+                        +'<h6 class="card-subtitle mb-2 text-muted">'+servicio.lugar_instalación+'</h6>'
+                        +'<h6 class="card-subtitle mb-2 text-muted">'+servicio.tipo_servicio+'</h6>'
+                                            +'<p class="card-text">'+servicio.info_adicional+'</p>'
+                                            +'<div style="text-align: -webkit-center;">'
+                                                +'<label class="switch switch-yes-no">'
+                                                    +'<input id="'+i+'"name="estado'+numsistemas+'" class="switch-input" type="checkbox" />'
+                                                    +'<span class="switch-label" data-on="ENCENDIDO" data-off="APAGADO"></span>'
+                                                    +'<span class="switch-handle"></span>'
+                                                +'</label>'
+                                            +'</div>'
+                                            +'<button style="margin-top: 10px" name="sistema'+numsistemas+'"id="'+i+'" onclick="getConfirmationElectrico();" type="button"'
+                                            +'class="btn btn-danger">Eliminar <i class="fas fa-trash-alt"></i></button>';
+                    
+                    }
+                    if(servicio.nombre_servicio=="Gestor de Temperatura")
+                    {
+                        numgestores++;
+                        card_servicio.className="card card-temperatura";
+                        card_servicio.setAttribute("id","card_temperatura"+i);
+                        card_servicio.innerHTML='<i class="fas fa-thermometer-half icono-card"></i>'
+                        acordeon_gestion.appendChild(card_servicio);
+                        var card_servicio_body=document.createElement("div");
+                        card_servicio_body.className="card-body";
+                        card_servicio_body.setAttribute("id","card_sistema_body"+i);
+                        document.getElementById("card_temperatura"+i).appendChild(card_servicio_body);
+                        card_servicio_body.innerHTML = '<h5 class="card-title">Gestor de Temperatura '+numgestores+'</h5>'
+                        +'<h6 class="card-subtitle mb-2 text-muted">'+servicio.lugar_instalación+'</h6>'
+                                            +'<p class="card-text">'+servicio.info_adicional+'</p>'
+                                            +'<div>'
+                                                    +'<font size="6"><input id="valor_temp'+i+'"style="text-align: center"type="text" value="'+servicio.valor_temperatura+'" id="temp" size="1" class="inputTemperatura">'
+                                                        +'<p></p>'
+                                                        +'<button id="Bajar'+i+'" name="control_temperatura"><i class="fas fa-arrow-down" ></i></button>&nbsp&nbsp'
+                                                        +'<button id="Subir'+i+'" name="control_temperatura"><i class="fas fa-arrow-up"></i></button>'
+                                                    +'</font>'
+                                                +'</div>'
+                                            +'<div style="text-align: -webkit-center;">'
+                                                +'<label class="switch switch-yes-no">'
+                                                    +'<input id="'+i+'"name="estado'+numgestores+'" class="switch-input" type="checkbox" />'
+                                                    +'<span class="switch-label" data-on="ENCENDIDO" data-off="APAGADO"></span>'
+                                                    +'<span class="switch-handle"></span>'
+                                                +'</label>'
+                                            +'</div>'
+                                            +'<button style="margin-top: 10px" name="gestor'+numgestores+'"id="'+i+'" onclick="getConfirmationElectrico();" type="button"'
+                                            +'class="btn btn-danger">Eliminar <i class="fas fa-trash-alt"></i></button>';
+                    
+                    }
+                    if(servicio.nombre_servicio=="Control de iluminación")
+                    {
+                        numluces++;
+                        card_servicio.className="card card-luz";
+                        card_servicio.setAttribute("id","card_luz"+i);
+                        card_servicio.innerHTML='<i class="fas fa-lightbulb icono-card"></i>'
+                        acordeon_gestion.appendChild(card_servicio);
+                        var card_servicio_body=document.createElement("div");
+                        card_servicio_body.className="card-body";
+                        card_servicio_body.setAttribute("id","card_sistema_body"+i);
+                        document.getElementById("card_luz"+i).appendChild(card_servicio_body);
+                        card_servicio_body.innerHTML = '<h5 class="card-title">Luces '+numluces+'</h5>'
+                        +'<h6 class="card-subtitle mb-2 text-muted">'+servicio.lugar_instalación+'</h6>'
+                                            +'<p class="card-text">'+servicio.info_adicional+'</p>'
+                                            +'<div style="text-align: -webkit-center;">'
+                                                +'<label class="switch switch-yes-no">'
+                                                    +'<input id="'+i+'"name="estado'+numluces+'" class="switch-input" type="checkbox" />'
+                                                    +'<span class="switch-label" data-on="ENCENDIDAS" data-off="APAGADAS"></span>'
+                                                    +'<span class="switch-handle"></span>'
+                                                +'</label>'
+                                            +'</div>'
+                                            +'<button style="margin-top: 10px" name="luz'+numluces+'"id="'+i+'" onclick="getConfirmationElectrico();" type="button"'
+                                            +'class="btn btn-danger">Eliminar <i class="fas fa-trash-alt"></i></button>';
+                    
+                    }
+
+                    if(servicio.nombre_servicio=="Sensor")
+                    {
+                        numsensores++;
+                        card_servicio.className="card card-sensor";
+                        card_servicio.setAttribute("id","card_sensor"+i);
+                        card_servicio.innerHTML='<img class="imagen-card" src="https://img.icons8.com/metro/52/000000/electrical-sensor.png" width="25px">'
+                        acordeon_sensor.appendChild(card_servicio);
+                        var card_servicio_body=document.createElement("div");
+                        card_servicio_body.className="card-body";
+                        card_servicio_body.setAttribute("id","card_sensor_body"+i);
+                        document.getElementById("card_sensor"+i).appendChild(card_servicio_body);
+                        card_servicio_body.innerHTML = '<h5 class="card-title">Sensor '+ numsensores +'</h5>'
+                                            +'<h6 class="card-subtitle mb-2 text-muted">'+servicio.lugar_instalación+'</h6>'
+                                            +'<p class="card-text">'+servicio.info_adicional+'</p>'
+                                            +'<div style="text-align: -webkit-center;">'
+                                                +'<label class="switch switch-yes-no">'
+                                                    +'<input id="'+i+'"name="estado'+i+'" class="switch-input" type="checkbox" />'
+                                                    +'<span  class="switch-label" data-on="ACTIVADO" data-off="DESACTIVADO"></span>'
+                                                    +'<span class="switch-handle"></span>'
+                                                +'</label>'
+                                            +'</div>'
+                                            +'<button style="margin-top: 10px" name="sensor'+numsensores+'"id="'+i+'" onclick="getConfirmationSensor();" type="button"'
+                                            +'class="btn btn-danger">Eliminar <i class="fas fa-trash-alt"></i></button>';
+
+                    }
+                    
+                }
+            }
+            var checkbox;
+            for(var i=0;i<localStorage.length;i++)
+            {
+                if(localStorage.getItem("ServicioCliente"+i+"Cliente"+idCliente))
+                {
+                    servicio=localStorage.getItem("ServicioCliente"+i+"Cliente"+idCliente);
+                    servicio= JSON.parse(servicio);
+                    if(document.getElementById(i))
+                    {
+                        checkbox=document.getElementById(i);
+                        if(servicio.estado=="true")
+                        {
+                            checkbox.setAttribute('checked','');
+                        }
+                        else
+                        {
+                            checkbox.removeAttribute('checked','');
+                        }
+                    }
+                }
+            }
+        }
+        $(function() {
+        $(document).on('click', 'button[class="btn btn-danger"]', function(event) 
+        {
+            let id = this.id;
+            localStorage.setItem("IdServicioBorrar",id);
+        });
+        $(document).on('click', 'button[class="swal-button swal-button--confirm swal-button--danger"]', function(event) 
+        {
+            let idCliente=localStorage.getItem("IdClienteServicios");
+            let id_delete_servicio=localStorage.getItem("IdServicioBorrar");
+            let cliente = localStorage.getItem("Cliente"+idCliente);
+            cliente=JSON.parse(cliente);
+            let servicio = localStorage.getItem("ServicioCliente"+id_delete_servicio+"Cliente"+idCliente);
+            servicio=JSON.parse(servicio);
+            cliente.cuota=cliente.cuota-servicio.precio;
+            localStorage.setItem("Actualizacion Cliente", "true");
+            localStorage.setItem("Cliente"+idCliente,JSON.stringify(cliente));
+            localStorage.removeItem("ServicioCliente"+id_delete_servicio+"Cliente"+idCliente);
+
+        });
+
+
+        $(document).on('click', 'button[class="swal-button swal-button--confirm"]', function(event) 
+        {
+            location.reload();
+        });
+
+        $(document).on('click', 'button[name="control_temperatura"]', function(event) 
+        {
+            var id_servicio=this.id.slice(-1);
+            var accion=this.id.slice(0,1);
+            var objeto=document.getElementById("valor_temp"+id_servicio);
+            var idCliente = localStorage.getItem("IdClienteServicios");
+            var servicio=localStorage.getItem("ServicioCliente"+id_servicio+"Cliente"+idCliente);
+                servicio= JSON.parse(servicio);
+            if(accion!="B")
+            {
+                servicio.valor_temperatura++;
+                objeto.value=servicio.valor_temperatura;
+            }
+            else
+            {
+                servicio.valor_temperatura--;
+                objeto.value=servicio.valor_temperatura;
+            }
+            localStorage.setItem("Actualizacion Cliente", "true");
+            localStorage.setItem("ServicioCliente"+id_servicio+"Cliente"+idCliente,JSON.stringify(servicio));
+        });
+        $(document).on('click', 'button[name="tecnico_ascensor_2"]', function(event) 
+            {
+            swal({
+                title: '¿Estás seguro de llamar al Servicio Técnico?',
+                text: "¡Se enviará un equipo de mecánicos a reparar el ascensor!",
+                icon: "warning",
+                buttons: ["Cancelar llamada", true],
+                })
+                .then((value) => {
+                if (value) {
+                    swal(
+                    {
+                    title: '¡Perfecto!',
+                    text: "¡El Servicio técnico está en camino!",
+                    icon: "success",
+                    });
+                } else {
+                    swal("Llamada Cancelada.No has llamado al Servicio Técnico");
+                }
+                });
+    });
+
+        $("[class*=switch-input]").click(function(){ 
+        {
+            localStorage.setItem("Actualizacion Cliente", "true");
+            var id_servicio=this.id;
+            var b_subir=document.getElementById("Subir"+id_servicio),
+                b_bajar=document.getElementById("Bajar"+id_servicio);
+            var idCliente=localStorage.getItem("IdClienteServicios");
+            var servicio=localStorage.getItem("ServicioCliente"+id_servicio+"Cliente"+idCliente);
+            servicio= JSON.parse(servicio);
+            if(this.checked && servicio.estado!="true")
+            {
+                servicio.estado="true";
+            }
+            else servicio.estado="false";
+            if(servicio.nombre_servicio=="Gestor de Temperatura")
+            {
+                if(servicio.estado=="false")
+                {
+                    document.getElementById("Subir"+id_servicio).disabled=true;
+                    document.getElementById("Bajar"+id_servicio).disabled=true;
+                    document.getElementById("valor_temp"+id_servicio).style="background-color:black";
+                }
+                else
+                {
+                    document.getElementById("Subir"+id_servicio).disabled=false;
+                    document.getElementById("Bajar"+id_servicio).disabled=false;
+                    document.getElementById("valor_temp"+id_servicio).style="background-color:white";
+                    document.getElementById("valor_temp"+id_servicio).style="text-align:center";
+                }
+            }
+            localStorage.setItem("ServicioCliente"+id_servicio+"Cliente"+idCliente,JSON.stringify(servicio));
+        }
+        })
+        $("[id*=persiana_input]").change(function(){
+          {
+            localStorage.setItem("Actualizacion Cliente", "true");
+            var id_servicio=this.id.slice(-1);
+            var idCliente=localStorage.getItem("IdClienteServicios");
+            var servicio=localStorage.getItem("ServicioCliente"+id_servicio+"Cliente"+idCliente);
+            servicio= JSON.parse(servicio);
+            servicio.apertura=this.value;
+            localStorage.setItem("ServicioCliente"+id_servicio+"Cliente"+idCliente,JSON.stringify(servicio));
+          }  
+         })
+        
+    });
+</script>
+</html>
